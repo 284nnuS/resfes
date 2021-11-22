@@ -1,7 +1,7 @@
 <div class="navbar">
 	<div class="navbar-left">
 		<p class="team-name">
-			ZOOMI<br />DISOON
+			ZOOMI<br />DSOON
 		</p>
 	</div>
 	<div class="navbar-right">
