@@ -1,8 +1,22 @@
-<div class="navbar">
+<script>
+	export let color = '#ffffff';
+
+	$: cssVarStyles = `--name-color:${color}`;
+</script>
+
+<div class="navbar" style={cssVarStyles}>
 	<div class="navbar-left">
-		<p class="team-name">
-			ZOOMI<br />DSOON
-		</p>
+		<ul>
+			<li class="team-name">
+				ZOOMI<br />DSOON
+			</li>
+			<li>
+				<a href="reason">Reason</a>
+			</li>
+			<li>
+				<a href="about">About Us</a>
+			</li>
+		</ul>
 	</div>
 	<div class="navbar-right">
 		<img src="/fptedu.png" class="nav-logo" alt="FPT Education Logo" />
@@ -13,21 +27,38 @@
 <style>
 	.navbar {
 		position: fixed;
-		padding: 3rem;
+		height: 8rem;
+		padding: 0 3rem;
 		left: 0;
 		right: 0;
+		display: flex;
+		justify-content: space-between;
 	}
 
-	.navbar-left {
-		float: left;
-	}
-
+	.navbar-left,
 	.navbar-right {
-		float: right;
+		display: flex;
+		align-items: center;
+	}
+
+	.navbar-left ul {
+		list-style-type: none;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding-left: 2.5vw;
+		gap: 10vw;
+	}
+
+	.navbar-left ul a {
+		text-decoration: none;
+		color: #fff;
+		font-size: 1.5rem;
+		font-weight: 800;
 	}
 
 	.team-name {
-		color: #2d3e69;
+		color: var(--name-color, white);
 		font-weight: 700;
 		font-size: 2rem;
 		margin: 0;

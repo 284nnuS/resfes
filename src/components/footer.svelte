@@ -34,6 +34,7 @@
 		color: white;
 		padding: 1rem;
 		gap: 0.5rem;
+		height: 5rem;
 	}
 
 	footer ul {

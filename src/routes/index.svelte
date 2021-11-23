@@ -2,15 +2,44 @@
 	import Navbar from '../components/navbar.svelte';
 </script>
 
-<Navbar />
-<div class="half-circle-container">
-	<div class="half-circle" />
-	<a href="#" class="play-link">
-		<img src="/play.png" alt="Play" />
-	</a>
-</div>
+<Navbar color="#2d3e69" />
+<main>
+	<div class="half-circle-container">
+		<div class="half-circle" />
+		<a href="#" class="play-link">
+			<img src="/play.png" alt="Play" />
+		</a>
+		<div class="icon" id="icona">
+			<img src="/icon1.png" alt="Play" />
+		</div>
+		<div class="icon" id="iconb">
+			<img src="/icon2.png" alt="Play" />
+		</div>
+		<div class="icon" id="iconc">
+			<img src="/icon3.png" alt="Play" />
+		</div>
+		<div class="icon" id="icond">
+			<img src="/icon4.png" alt="Play" />
+		</div>
+	</div>
+	<div class="left-container">
+		<h2>FACE - PERSONALITY</h2>
+		<h3>Upload your photo</h3>
+		<p>
+			Our system will analyze your face. Combined with the results from the Multiple Intelligence
+			questions, you will know which major your personality and face is suitable for at FPT
+			University.
+		</p>
+		<a href="upload" class="start-btn">
+			<button type="submit">START</button>
+		</a>
+	</div>
+</main>
 
 <style>
+	main {
+		padding-bottom: 5rem;
+	}
 	.half-circle-container {
 		position: relative;
 		margin-left: 15.46875vw;
@@ -29,11 +58,10 @@
 		padding-bottom: 0rem;
 		margin-bottom: 4.5rem;
 	}
-
 	.play-link {
 		position: absolute;
 		display: block;
-		bottom: -4.5rem;
+		bottom: -3rem;
 		z-index: 5;
 		background-color: #eee;
 		border-radius: 5rem;
@@ -50,5 +78,98 @@
 	.play-link img {
 		width: 9rem;
 		height: 9rem;
+	}
+
+	.icon {
+		width: 10rem;
+		height: 10rem;
+		border-radius: 5rem;
+		z-index: 5;
+		background-color: #fff;
+		position: absolute;
+		margin: auto auto 0 auto;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		bottom: 0;
+	}
+
+	.icon img {
+		width: 7rem;
+		height: 7rem;
+	}
+	#icona {
+		bottom: calc(15rem * 0.30901699437 - 1rem);
+		left: calc(15rem * -0.95105651629);
+		right: calc(15rem * 0.95105651629);
+	}
+	#iconb {
+		bottom: calc(15rem * 0.91354545764 - 1rem);
+		left: calc(15rem * -0.40673664307);
+		right: calc(15rem * 0.40673664307);
+	}
+	#iconc {
+		bottom: calc(15rem * 0.91354545764 - 1rem);
+		left: calc(15rem * 0.40673664307);
+		right: calc(15rem * -0.40673664307);
+	}
+	#icond {
+		bottom: calc(15rem * 0.30901699437 - 1rem);
+		left: calc(15rem * 0.95105651629);
+		right: calc(15rem * -0.95105651629);
+	}
+
+	.left-container {
+		position: absolute;
+		bottom: 7rem;
+		padding: 3rem;
+		width: 30vw;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.left-container h2,
+	h3 {
+		margin: 0;
+	}
+
+	.left-container h2 {
+		font-size: 2.25rem;
+		font-weight: 700;
+		color: #efb0c9;
+	}
+
+	.left-container h3 {
+		font-size: 2.25rem;
+		font-weight: 500;
+		color: black;
+	}
+
+	.left-container p {
+		font-size: 1.25rem;
+		font-weight: 400;
+		color: black;
+	}
+
+	.start-btn {
+		align-self: center;
+	}
+
+	.start-btn button {
+		width: 13rem;
+		height: 3.5rem;
+		color: #fff;
+		background-color: #d184a3;
+		border: 0;
+		font-size: 1.5rem;
+		font-weight: 700;
+		border-radius: 5rem;
+	}
+
+	.start-btn button:hover {
+		background-color: rgb(223, 149, 180);
+		color: #fff;
+		transition: color 0.3s ease-in;
 	}
 </style>
