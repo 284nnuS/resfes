@@ -47,7 +47,7 @@
 		align-items: center;
 		justify-content: space-between;
 		padding-left: 2.5vw;
-		gap: 10vw;
+		gap: calc(10vw - 1rem);
 	}
 
 	.navbar-left ul a {

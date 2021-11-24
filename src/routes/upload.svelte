@@ -16,11 +16,9 @@
 				<img src="/image 5.png" alt="Image 3" />
 			</div>
 		</div>
-		<div class="column-right">
-			<div id="upload-container">
-				<img src="/upload.png" alt="Upload" />
-				<p>No file chosen, yet!</p>
-			</div>
+		<div id="upload-container">
+			<img src="/upload.png" alt="Upload" />
+			<p>No file chosen, yet!</p>
 		</div>
 	</div>
 	<button id="upload-btn">UPLOAD</button>
@@ -69,17 +67,18 @@
 		border-radius: 30px;
 		padding: 1rem 2rem;
 		font-weight: 500;
-		font-size: 1.15rem;
+		font-size: 1.25rem;
+		margin-top: 0;
 	}
 
 	.img-container {
 		display: flex;
-		justify-content: space-between;
+		justify-content: space-around;
 		width: 100%;
 	}
 
 	.img-container img {
-		width: 9rem;
+		width: 7em;
 		aspect-ratio: 124/171;
 		border: 5px solid white;
 	}
@@ -91,7 +90,7 @@
 		border-radius: 3.25rem;
 		background-color: #fff;
 		border: 0px solid transparent;
-		margin: 2rem 0;
+		margin: 1rem 0;
 		font-size: 1.25rem;
 		font-weight: 700;
 	}
@@ -102,7 +101,7 @@
 	}
 
 	#upload-container {
-		width: 15rem;
+		width: 12rem;
 		aspect-ratio: 124/171;
 		border: 2px dashed white;
 		border-radius: 1.5rem;
@@ -120,6 +119,8 @@
 		font-size: 1.3rem;
 		font-weight: 400;
 		color: white;
+		padding: 0.5rem;
+		text-align: center;
 	}
 
 	.icon-container {
@@ -130,24 +131,28 @@
 	.icon-container div {
 		background-color: #fff;
 		border-radius: 5rem;
-		width: 8rem;
-		height: 8rem;
+		width: 6rem;
+		height: 6rem;
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		padding: 1.5rem;
 	}
 
 	.icon-container div:nth-child(3) {
-		width: 10rem;
-		height: 10rem;
+		width: 7rem;
+		height: 7rem;
 		background-color: #b8d7db;
 	}
 
 	.icon-container img {
-		width: 5rem;
+		width: 100%;
+		aspect-ratio: 1/1;
 	}
 
-	.icon-container div:nth-child(3) img {
-		width: 7rem;
+	@media only screen and (max-height: 800px) {
+		.icon-container {
+			display: none;
+		}
 	}
 </style>

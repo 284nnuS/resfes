@@ -121,29 +121,35 @@
 
 	.left-container {
 		position: absolute;
-		bottom: 7rem;
+		bottom: 5rem;
 		padding: 3rem;
-		width: 30vw;
+		width: 25vw;
+		height: 60vh;
+		justify-content: center;
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
+		gap: 0.5rem;
 	}
 
 	.left-container h2,
-	h3 {
+	h3,
+	p {
 		margin: 0;
+		padding: 0;
 	}
 
 	.left-container h2 {
 		font-size: 2.25rem;
 		font-weight: 700;
 		color: #efb0c9;
+		width: 66%;
 	}
 
 	.left-container h3 {
 		font-size: 2.25rem;
 		font-weight: 500;
 		color: black;
+		width: 85%;
 	}
 
 	.left-container p {
@@ -154,6 +160,7 @@
 
 	.start-btn {
 		align-self: center;
+		margin-top: 0.5rem;
 	}
 
 	.start-btn button {
