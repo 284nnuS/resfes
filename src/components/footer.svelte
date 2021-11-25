@@ -2,18 +2,27 @@
 	<div class="footer-icons">
 		<ul>
 			<li>
-				<a href="https://www.facebook.com/"><i class="fa fa-facebook" aria-hidden="true" /></a>
-			</li>
-			<li>
-				<a href="https://www.instagram.com/?hl=en"
-					><i class="fa fa-instagram" aria-hidden="true" /></a
+				<a href="https://www.youtube.com/channel/UC0pAJM0L36IxY5loDHBZ3SQ"
+					><i class="fa fa-youtube" aria-hidden="true" /></a
 				>
 			</li>
 			<li>
-				<a href="https://www.pinterest.com/"><i class="fa fa-pinterest-p" aria-hidden="true" /></a>
+				<a href="https://www.facebook.com/zoomidsoon"
+					><i class="fa fa-facebook" aria-hidden="true" /></a
+				>
 			</li>
 			<li>
-				<a href="https://twitter.com/?lang=en"><i class="fa fa-twitter" aria-hidden="true" /></a>
+				<a href="https://mail.google.com/mail/?view=cm&source=mailto&to=zoomidsoon@gmail.com"
+					><i class="fa fa-google" aria-hidden="true" /></a
+				>
+			</li>
+			<li>
+				<a href="https://www.linkedin.com/in/zoomi-dsoon-1ab154227"
+					><i class="fa fa-linkedin" aria-hidden="true" /></a
+				>
+			</li>
+			<li>
+				<a href="https://twitter.com/zoomidsoon"><i class="fa fa-twitter" aria-hidden="true" /></a>
 			</li>
 		</ul>
 	</div>
