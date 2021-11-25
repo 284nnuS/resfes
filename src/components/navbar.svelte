@@ -31,6 +31,7 @@
 		padding: 3rem 3rem 0 3rem;
 		left: 0;
 		right: 0;
+		z-index: 100;
 		display: flex;
 		justify-content: space-between;
 	}
@@ -50,11 +51,22 @@
 		gap: calc(10vw - 1rem);
 	}
 
-	.navbar-left ul a {
+	.navbar-left li {
+		padding: 0;
+	}
+
+	.navbar-left ul li a {
 		text-decoration: none;
 		color: #fff;
 		font-size: 1.5rem;
+		display: block;
+		padding: 0;
+		display: block;
 		font-weight: 800;
+		width: 8rem;
+		height: 4rem;
+		line-height: 4rem;
+		text-align: center;
 	}
 
 	.team-name {
