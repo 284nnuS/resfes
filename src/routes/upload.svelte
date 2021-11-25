@@ -138,6 +138,7 @@
 		justify-content: center;
 		align-items: center;
 		padding: 1.5rem;
+		margin:1rem;
 	}
 
 	.icon-container div:nth-child(3) {
