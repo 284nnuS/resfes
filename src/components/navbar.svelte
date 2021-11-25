@@ -27,8 +27,8 @@
 <style>
 	.navbar {
 		position: fixed;
-		height: 8rem;
-		padding: 0 3rem;
+		height: 6rem;
+		padding: 3rem 3rem 0 3rem;
 		left: 0;
 		right: 0;
 		display: flex;

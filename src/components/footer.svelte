@@ -41,9 +41,8 @@
 		bottom: 0;
 		width: 100%;
 		color: white;
-		padding: 1rem;
 		gap: 0.5rem;
-		height: 5rem;
+		height: 6rem;
 	}
 
 	footer ul {

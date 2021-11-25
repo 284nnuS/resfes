@@ -46,10 +46,11 @@
 		background-color: #efb0c9;
 		width: 100vw;
 		padding-top: 8rem;
-		padding-bottom: 5rem;
+		margin-bottom: 5rem;
 		height: calc(100vh - 5rem - 8rem);
 		display: flex;
 		align-items: center;
+		justify-content: center;
 		flex-direction: column;
 	}
 
