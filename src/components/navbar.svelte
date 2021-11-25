@@ -8,7 +8,7 @@
 	<div class="navbar-left">
 		<ul>
 			<li class="team-name">
-				ZOOMI<br />DSOON
+				<a href="/">ZOOMI<br />DSOON</a>
 			</li>
 			<li>
 				<a href="reason">Reason</a>
@@ -64,15 +64,16 @@
 		display: block;
 		font-weight: 800;
 		width: 8rem;
-		height: 4rem;
-		line-height: 4rem;
+		line-height: 5rem;
+		height: 5rem;
 		text-align: center;
 	}
 
-	.team-name {
-		color: var(--name-color, white);
+	.navbar-left ul li.team-name a {
+		color: var(--name-color, white) !important;
 		font-weight: 700;
 		font-size: 2rem;
+		line-height: 2.5rem;
 		margin: 0;
 	}
 
