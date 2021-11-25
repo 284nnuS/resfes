@@ -8,7 +8,7 @@
 	<div class="navbar-left">
 		<ul>
 			<li class="team-name">
-				ZOOMI<br />DSOON
+				<a href="/">ZOOMI<br />DSOON</a>
 			</li>
 			<li>
 				<a href="reason">Reason</a>
@@ -27,10 +27,11 @@
 <style>
 	.navbar {
 		position: fixed;
-		height: 8rem;
-		padding: 0 3rem;
+		height: 6rem;
+		padding: 3rem 3rem 0 3rem;
 		left: 0;
 		right: 0;
+		z-index: 100;
 		display: flex;
 		justify-content: space-between;
 	}
@@ -50,17 +51,29 @@
 		gap: calc(10vw - 1rem);
 	}
 
-	.navbar-left ul a {
+	.navbar-left li {
+		padding: 0;
+	}
+
+	.navbar-left ul li a {
 		text-decoration: none;
 		color: #fff;
 		font-size: 1.5rem;
+		display: block;
+		padding: 0;
+		display: block;
 		font-weight: 800;
+		width: 8rem;
+		line-height: 5rem;
+		height: 5rem;
+		text-align: center;
 	}
 
-	.team-name {
-		color: var(--name-color, white);
+	.navbar-left ul li.team-name a {
+		color: var(--name-color, white) !important;
 		font-weight: 700;
 		font-size: 2rem;
+		line-height: 2.5rem;
 		margin: 0;
 	}
 

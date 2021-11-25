@@ -38,12 +38,13 @@
 
 <style>
 	main {
-		padding-bottom: 5rem;
+		margin-bottom: 5rem;
+		margin-top: 6rem;
 	}
 	.half-circle-container {
 		position: relative;
 		margin-left: 15.46875vw;
-		margin-top: -8rem;
+		margin-top: -14rem;
 		width: 91.875vw;
 	}
 	.half-circle {
