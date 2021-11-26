@@ -5,45 +5,33 @@
 <Navbar />
 
 <main>
-	<center>
-		<div class="icon-container">
-			<div>
-				<div class="icon">
-					<img src="/icon1.png" alt="Image 1" />
-				</div>
-				<div class="icon">
-					<img src="/icon2.png" alt="Image 2" />
-				</div>
+	<div class="icon-container">
+		<div>
+			<div class="icon">
+				<img src="/icon1.png" alt="Image 1" />
 			</div>
-			<div class="container">
-				<div class="container-message">
-					<b>
-                    <br />
-						<br />
-						BẠN VUI LÒNG CHỜ TRONG GIÂY LÁT !</b
-					>
-					<br />
-					<br />
-                    <br />
-                    <br />
-					<b class="dot">.          .          .</b>
-				</div>
-			</div>
-			<div>
-				<div class="icon">
-					<img src="/icon3.png" alt="Image 4" />
-				</div>
-				<div class="icon">
-					<img src="/icon4.png" alt="Image 5" />
-				</div>
+			<div class="icon">
+				<img src="/icon2.png" alt="Image 2" />
 			</div>
 		</div>
-		<div class="container-button">
-			<a href="/" class="start-btn">
-				<button type="submit">Home</button>
-			</a>
+		<div class="message-container">
+			<b> BẠN VUI LÒNG CHỜ TRONG GIÂY LÁT !</b>
+			<b class="dot">. . .</b>
 		</div>
-	</center>
+		<div>
+			<div class="icon">
+				<img src="/icon3.png" alt="Image 4" />
+			</div>
+			<div class="icon">
+				<img src="/icon4.png" alt="Image 5" />
+			</div>
+		</div>
+	</div>
+	<div class="container-button">
+		<a href="/" class="home-btn">
+			<button type="submit">Home</button>
+		</a>
+	</div>
 </main>
 
 <style>
@@ -51,10 +39,11 @@
 		background-color: #efb0c9;
 		width: 100vw;
 		padding-top: 8rem;
-		padding-bottom: 5rem;
-		height: calc(100vh - 5rem - 8rem);
+		margin-bottom: 6rem;
+		height: calc(100vh - 6rem - 8rem);
 		display: flex;
 		align-items: center;
+		justify-content: center;
 		flex-direction: column;
 	}
 	center {
@@ -65,12 +54,12 @@
 		padding: 5px;
 		justify-content: bottom;
 	}
-	.start-btn {
+	.home-btn {
 		align-self: center;
 		margin-top: 0.5rem;
 	}
 
-	.start-btn button {
+	.home-btn button {
 		width: 13rem;
 		height: 3.5rem;
 		color: #fff;
@@ -81,15 +70,13 @@
 		border-radius: 5rem;
 	}
 
-	.start-btn button:hover {
+	.home-btn button:hover {
 		background-color: rgb(223, 149, 180);
 		color: #fff;
 		transition: color 0.3s ease-in;
 	}
 
 	.icon-container {
-		width: 90%;
-		height: 80%;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -111,27 +98,22 @@
 		width: 100%;
 		aspect-ratio: 1/1;
 	}
-	.container {
-		width: 80%;
-		height: 70%;
-	}
-	.container-message {
-		width: 60%;
-		height: 80%;
+	.message-container {
+		width: 60rem;
+		height: 20rem;
 		background-color: white;
-        color:#20519B;
+		color: #20519b;
 		border-radius: 2rem;
-		padding: 1rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		gap: 0.5rem;
 	}
-	.container-message b {
-		margin: 1rem;
+	.message-container b {
 		text-align: center;
 		font-size: xx-large;
-	}
-
-	@media only screen and (max-height: 800px) {
-		.icon-container {
-			display: none;
-		}
+		height: auto;
+		margin: 0;
 	}
 </style>

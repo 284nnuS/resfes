@@ -4,64 +4,56 @@
 
 <Navbar />
 <main>
-	<center class="container">
-		<div id="wrap-images">
-			<div class="card">
-				<div class="images">
-					<img src="./TDung.jpg" alt="Team Member" srcset="" />
-				</div>
-				<div class="description">
-					<p class="name">Trung Dũng</p>
-					<p class="id">DE150256</p>
-				</div>
+	<div id="image-grid">
+		<div class="card">
+			<div class="images">
+				<img src="./TDung.jpg" alt="Team Member" srcset="" />
 			</div>
-			<div class="card">
-				<div class="images">
-					<img src="./TDungg.jpeg" alt="Team Member" srcset="" />
-				</div>
-				<div class="description">
-					<p class="name">Thuỳ Dung</p>
-					<p class="id">DE150256</p>
-				</div>
-			</div>
-			<div class="card">
-				<div class="images">
-					<img src="./VChuong.jpg" alt="Team Member" srcset="" />
-				</div>
-				<div class="description">
-					<p class="name">Văn Chương</p>
-					<p class="id">DE150256</p>
-				</div>
-			</div>
-			<div class="card">
-				<div class="images">
-					<img src="./Mentor.jpg" alt="Team Member" srcset="" />
-				</div>
-				<div class="description">
-					<p class="name">Gia Trí</p>
-					<p class="id">DE150256</p>
-				</div>
-			</div>
-			<div class="card">
-				<div class="images">
-					<img src="./THoai.png" alt="Team Member" srcset="" />
-				</div>
-				<div class="description">
-					<p class="name">Thu Hoai</p>
-					<p class="id">DE150334</p>
-				</div>
-			</div>
-			<div class="card">
-				<div class="images">
-					<img src="./VSon.jpg" alt="Team Member" srcset="" />
-				</div>
-				<div class="description">
-					<p class="name">Văn Sơn</p>
-					<p class="id">DE150256</p>
-				</div>
+			<div class="description">
+				<p class="name">Trung Dũng</p>
 			</div>
 		</div>
-	</center>
+		<div class="card">
+			<div class="images">
+				<img src="./TDungg.jpeg" alt="Team Member" srcset="" />
+			</div>
+			<div class="description">
+				<p class="name">Thuỳ Dung</p>
+			</div>
+		</div>
+		<div class="card">
+			<div class="images">
+				<img src="./VChuong.png" alt="Team Member" srcset="" />
+			</div>
+			<div class="description">
+				<p class="name">Văn Chương</p>
+			</div>
+		</div>
+		<div class="card">
+			<div class="images">
+				<img src="./Mentor.jpg" alt="Team Member" srcset="" />
+			</div>
+			<div class="description">
+				<p class="name">Gia Trí</p>
+			</div>
+		</div>
+		<div class="card">
+			<div class="images">
+				<img src="./THoai.png" alt="Team Member" srcset="" />
+			</div>
+			<div class="description">
+				<p class="name">Thu Hoai</p>
+			</div>
+		</div>
+		<div class="card">
+			<div class="images">
+				<img src="./VSon.jpg" alt="Team Member" srcset="" />
+			</div>
+			<div class="description">
+				<p class="name">Văn Sơn</p>
+			</div>
+		</div>
+	</div>
 </main>
 
 <style>
@@ -69,26 +61,28 @@
 		background-color: #efb0c9;
 		width: 100vw;
 		padding-top: 8rem;
-		padding-bottom: 5rem;
-		height: calc(100vh - 5rem - 8rem);
+		margin-bottom: 6rem;
+		height: calc(100vh - 6rem - 8rem);
 		display: flex;
 		align-items: center;
+		justify-content: center;
 		flex-direction: column;
 	}
-	#wrap-images {
-		width: 100%;
-		display: flex;
+	#image-grid {
+		display: inline-grid;
+		grid-template-columns: repeat(6, 10%);
+		column-gap: calc(1rem + 2%);
 		justify-content: center;
+		height: 80%;
 	}
 	.card {
-		margin: 0px 25px;
 		border-radius: 20px;
-		width: 200px;
-		height: 480px;
 		overflow: hidden;
 		position: relative;
-		margin-top: 3rem;
 		box-shadow: 0 1px 10px 0px;
+		justify-self: center;
+		width: 100%;
+		height: 100%;
 	}
 	.card .images {
 		width: 100%;
@@ -99,18 +93,15 @@
 		width: 100%;
 		padding: 12px 0px;
 		height: 90px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
 	}
 	.description p {
-		font-size: 20px;
+		font-size: 1.25rem;
 		text-align: center;
-		line-height: 10px;
-		font-family: Arial, Helvetica, sans-serif;
+		font-weight: 700;
 		color: #fff;
-	}
-	.container {
-		height: 80%;
-		padding-top: 3rem;
-		
 	}
 	.images {
 		width: 100%;
@@ -122,23 +113,27 @@
 		height: 100%;
 		object-fit: cover;
 	}
-	#wrap-images .card:nth-child(1) img {
-		transform: scale(1.1) translate(10px, 10px);
+	#image-grid .card:nth-child(1) img {
+		transform: scale(1.1) translate(3%, 4.5%);
 	}
-	#wrap-images .card:nth-child(5) img {
-		transform: scale(1.6) translate(-10px, -15px);
+	#image-grid .card:nth-child(2) img {
+		transform: scale(1.2) translate(2%, -6%);
 	}
-	#wrap-images .card:nth-child(3) img {
-		transform: scale(1.1) translateY(-10px);
+	#image-grid .card:nth-child(3) img {
+		transform: scale(1.1) translate(0, 0%);
 	}
-	#wrap-images .card:nth-child(4) img {
-		transform: translateY(10px);
-		transform: scale(3.3) translate(12px, -15px);
+	#image-grid .card:nth-child(4) img {
+		transform: scale(2.7) translate(8%, -4%);
 	}
-	#wrap-images .card:nth-child(2) img {
-		transform: scale(1.3) translateY(-40px) translate(8px, 10px);
+	#image-grid .card:nth-child(5) img {
+		transform: scale(1.6) translate(-13%, 1%);
 	}
-	#wrap-images .card:nth-child(6) img {
-		transform: scale(1.7) translate(-5px, -20px);
+	#image-grid .card:nth-child(6) img {
+		transform: scale(1.6) translate(-5%, 2%);
+	}
+
+	#image-grid .card:hover {
+		transform: scale(1.03);
+		transition: 0.5s ease-in-out;
 	}
 </style>

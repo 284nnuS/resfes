@@ -5,16 +5,14 @@
 <Navbar />
 
 <main>
-	<center>
-		<div class="container" >
-        <center>Đôi lời</center>
-        </div>
-        <div class="container-button">
-		<a href="/" class="start-btn">
+	<div class="container">
+		<center>Đôi lời</center>
+	</div>
+	<div class="container-button">
+		<a href="/" class="home-btn">
 			<button type="submit">Home</button>
 		</a>
-        </div>
-	</center>
+	</div>
 </main>
 
 <style>
@@ -27,27 +25,25 @@
 		display: flex;
 		align-items: center;
 		flex-direction: column;
-	}
-	center {
-		width: 100%;
-		height: 100%;
+		justify-content: center;
+		gap: 1rem;
 	}
 	.container {
-		height: 77%;
-		width: 80%;
+		width: 60rem;
+		height: 25rem;
 		background-color: white;
-        border-radius:2rem;
-        border: 6px solid #20519B;
+		border-radius: 2rem;
+		border: 6px solid #20519b;
 	}
-    .container-button{
-        padding:5px;
-    }
-	.start-btn {
+	.container-button {
+		padding: 5px;
+	}
+	.home-btn {
 		align-self: center;
 		margin-top: 0.5rem;
 	}
 
-	.start-btn button {
+	.home-btn button {
 		width: 13rem;
 		height: 3.5rem;
 		color: #fff;

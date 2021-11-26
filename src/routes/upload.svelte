@@ -46,8 +46,8 @@
 		background-color: #efb0c9;
 		width: 100vw;
 		padding-top: 8rem;
-		margin-bottom: 5rem;
-		height: calc(100vh - 5rem - 8rem);
+		margin-bottom: 6rem;
+		height: calc(100vh - 6rem - 8rem);
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -138,7 +138,7 @@
 		justify-content: center;
 		align-items: center;
 		padding: 1.5rem;
-		margin:1rem;
+		margin: 1rem;
 	}
 
 	.icon-container div:nth-child(3) {
