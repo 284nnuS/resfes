@@ -8,10 +8,10 @@
 	<div class="icon-container">
 		<div>
 			<div class="icon">
-				<img src="/icon1.png" alt="Image 1" />
+				<img src="/icon1.png" alt="1" />
 			</div>
 			<div class="icon">
-				<img src="/icon2.png" alt="Image 2" />
+				<img src="/icon2.png" alt="2" />
 			</div>
 		</div>
 		<div class="message-container">
@@ -20,10 +20,10 @@
 		</div>
 		<div>
 			<div class="icon">
-				<img src="/icon3.png" alt="Image 4" />
+				<img src="/icon3.png" alt="4" />
 			</div>
 			<div class="icon">
-				<img src="/icon4.png" alt="Image 5" />
+				<img src="/icon4.png" alt="5" />
 			</div>
 		</div>
 	</div>
@@ -45,10 +45,6 @@
 		align-items: center;
 		justify-content: center;
 		flex-direction: column;
-	}
-	center {
-		width: 100%;
-		height: 100%;
 	}
 	.container-button {
 		padding: 5px;

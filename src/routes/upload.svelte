@@ -1,5 +1,51 @@
 <script>
 	import Navbar from '../components/navbar.svelte';
+	import { onMount } from 'svelte';
+	import { Base64 } from 'js-base64';
+
+	let dragarea;
+
+	onMount(async () => {
+		['dragenter', 'dragover', 'dragleave', 'drop'].forEach((eventName) => {
+			dragarea.addEventListener(eventName, preventDefaults, false);
+		});
+
+		['dragenter', 'dragover'].forEach((eventName) => {
+			dragarea.addEventListener(eventName, highlight, false);
+		});
+		['dragleave', 'drop'].forEach((eventName) => {
+			dragarea.addEventListener(eventName, unhighlight, false);
+		});
+	});
+
+	function highlight(e) {
+		dragarea.classList.add('highlight');
+	}
+
+	function unhighlight(e) {
+		dragarea.classList.remove('highlight');
+	}
+
+	function preventDefaults(e) {
+		e.preventDefault();
+		e.stopPropagation();
+	}
+
+	function handleDrop(e) {
+		let dt = e.dataTransfer;
+		let files = dt.files;
+		if (files.length > 0) {
+			//`
+		}
+		let reader = new FileReader();
+		reader.onload = function (event) {
+			let buffer = event.target.result;
+			let arr = new Uint8Array(buffer);
+			let b64str = Base64.fromUint8Array(arr);
+			console.log(b64str);
+		};
+		reader.readAsArrayBuffer(files[0]);
+	}
 </script>
 
 <Navbar />
@@ -11,12 +57,12 @@
 				not too blurry or too small. Example:
 			</p>
 			<div class="img-container">
-				<img src="/image 3.png" alt="Image 1" />
-				<img src="/image 4.png" alt="Image 2" />
-				<img src="/image 5.png" alt="Image 3" />
+				<img src="/image 3.png" alt="3" />
+				<img src="/image 4.png" alt="4" />
+				<img src="/image 5.png" alt="5" />
 			</div>
 		</div>
-		<div id="upload-container">
+		<div id="drop-area" bind:this={dragarea} on:drop={handleDrop}>
 			<img src="/upload.png" alt="Upload" />
 			<p>No file chosen, yet!</p>
 		</div>
@@ -24,19 +70,19 @@
 	<button id="upload-btn">UPLOAD</button>
 	<div class="icon-container">
 		<div>
-			<img src="/icon1.png" alt="Image 1" />
+			<img src="/icon1.png" alt="1" />
 		</div>
 		<div>
-			<img src="/icon2.png" alt="Image 2" />
+			<img src="/icon2.png" alt="2" />
 		</div>
 		<div>
-			<img src="/icon5.png" alt="Image 3" />
+			<img src="/icon5.png" alt="3" />
 		</div>
 		<div>
-			<img src="/icon3.png" alt="Image 4" />
+			<img src="/icon3.png" alt="4" />
 		</div>
 		<div>
-			<img src="/icon4.png" alt="Image 5" />
+			<img src="/icon4.png" alt="5" />
 		</div>
 	</div>
 </main>
@@ -101,7 +147,7 @@
 		background-color: #86a8ff;
 	}
 
-	#upload-container {
+	#drop-area {
 		width: 12rem;
 		aspect-ratio: 124/171;
 		border: 2px dashed white;
@@ -112,11 +158,11 @@
 		align-items: center;
 	}
 
-	#upload-container img {
+	#drop-area img {
 		width: 7rem;
 	}
 
-	#upload-container p {
+	#drop-area p {
 		font-size: 1.3rem;
 		font-weight: 400;
 		color: white;

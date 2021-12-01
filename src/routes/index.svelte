@@ -6,7 +6,7 @@
 <main>
 	<div class="half-circle-container">
 		<div class="half-circle" />
-		<a href="#" class="play-link">
+		<a href="/upload" class="play-link">
 			<img src="/play.png" alt="Play" />
 		</a>
 		<div class="icon" id="icona">

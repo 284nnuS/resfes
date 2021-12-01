@@ -33,16 +33,16 @@
 	</div>
 	<div class="icon-container">
 		<div>
-			<img src="/icon1.png" alt="Image 1" />
+			<img src="/icon1.png" alt="1" />
 		</div>
 		<div>
-			<img src="/icon2.png" alt="Image 2" />
+			<img src="/icon2.png" alt="2" />
 		</div>
 		<div>
-			<img src="/icon3.png" alt="Image 4" />
+			<img src="/icon3.png" alt="3" />
 		</div>
 		<div>
-			<img src="/icon4.png" alt="Image 5" />
+			<img src="/icon4.png" alt="4" />
 		</div>
 	</div>
 </main>

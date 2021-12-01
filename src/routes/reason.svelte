@@ -54,7 +54,7 @@
 		border-radius: 5rem;
 	}
 
-	.start-btn button:hover {
+	.home-btn button:hover {
 		background-color: rgb(223, 149, 180);
 		color: #fff;
 		transition: color 0.3s ease-in;
