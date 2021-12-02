@@ -13,7 +13,7 @@ cache = TTLCache(maxsize=float('inf'), ttl=10800)
 app = FastAPI()
 
 
-@ app.post("/analyze")
+@ app.post("/api/analyze")
 async def analyze(request: Request):
     try:
         json = await request.json()
@@ -45,7 +45,7 @@ async def analyze(request: Request):
         }
 
 
-@ app.post("/submit")
+@ app.post("/api/submit")
 async def submit(request: Request):
     try:
         json = await request.json()
@@ -94,7 +94,7 @@ async def submit(request: Request):
         }
 
 
-@ app.get("/view/{id}")
+@ app.get("/api/{id}")
 async def view(id: str):
     try:
         if id not in cache:
@@ -135,7 +135,7 @@ language = read_to_json('../quizs/language.json')
 num_of_question = 3
 
 
-@ app.get("/quiz")
+@ app.get("/api/quiz")
 async def quiz():
     result = []
 
