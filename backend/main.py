@@ -94,7 +94,7 @@ async def submit(request: Request):
         }
 
 
-@ app.get("/api/{id}")
+@ app.get("/api/view/{id}")
 async def view(id: str):
     try:
         if id not in cache:
