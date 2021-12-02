@@ -42,25 +42,37 @@
 					<div class="round-icon">
 						<img src="/it.png" alt="" />
 					</div>
-					<div class="square-result"><p>{Math.round(result[0] * 10) / 10}%</p></div>
+					<div class="square-result">
+						<p>{Math.round(result[0] * 10) / 10}%</p>
+						IT
+					</div>
 				</div>
 				<div class="container-result-small">
 					<div class="round-icon">
 						<img src="/business.png" alt="" />
 					</div>
-					<div class="square-result"><p>{Math.round(result[1] * 10) / 10}%</p></div>
+					<div class="square-result">
+						<p>{Math.round(result[1] * 10) / 10}%</p>
+						Business
+					</div>
 				</div>
 				<div class="container-result-small">
 					<div class="round-icon">
 						<img src="/graphic.png" alt="" />
 					</div>
-					<div class="square-result"><p>{Math.round(result[2] * 10) / 10}%</p></div>
+					<div class="square-result">
+						<p>{Math.round(result[2] * 10) / 10}%</p>
+						Graphics
+					</div>
 				</div>
 				<div class="container-result-small">
 					<div class="round-icon">
 						<img src="/language.png" alt="" />
 					</div>
-					<div class="square-result"><p>{Math.round(result[3] * 10) / 10}%</p></div>
+					<div class="square-result">
+						<p>{Math.round(result[3] * 10) / 10}%</p>
+						Language
+					</div>
 				</div>
 			</div>
 			<div class="container-button">
@@ -110,6 +122,9 @@
 		justify-content: center;
 		flex-direction: column;
 	}
+	button {
+		cursor: pointer;
+	}
 	.container-button {
 		padding: 5px;
 		justify-content: bottom;
@@ -128,6 +143,7 @@
 		font-size: 1.5rem;
 		font-weight: 700;
 		border-radius: 5rem;
+		cursor: pointer;
 	}
 
 	.home-btn button:hover {
@@ -188,7 +204,7 @@
 		border-radius: 50%;
 		border: 3px solid #714992;
 		background-color: white;
-		left: 60%;
+		left: 57.5%;
 		transform: translate(-50%, -50%);
 		padding: 1rem;
 	}
@@ -201,20 +217,25 @@
 
 	.square-result {
 		width: 11rem;
-		height: 10rem;
+		height: 9rem;
 		border-radius: 15%;
 		border: 5px solid #20519b;
 		background-color: white;
-		padding-top: 1rem;
+		padding-top: 2rem;
 		display: flex;
+		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		color: #20519b;
+		font-weight: 600;
+		font-size: 1.25rem;
 	}
 
 	.square-result p {
 		color: #20519b;
 		font-weight: 700;
 		font-size: 3.25rem;
+		margin: 0;
 	}
 
 	@media only screen and (max-height: 800px) {

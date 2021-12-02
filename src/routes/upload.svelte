@@ -46,7 +46,7 @@
 	}
 
 	function handleFile(files) {
-		if (files.length > 0) {
+		if (files.length > 1) {
 			state = 'error';
 			errmessage = 'Please select only one image file';
 			return;
@@ -330,6 +330,9 @@
 		flex-direction: column;
 	}
 
+	button {
+		cursor: pointer;
+	}
 	.top-container {
 		display: flex;
 		align-items: center;

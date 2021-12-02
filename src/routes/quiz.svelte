@@ -197,6 +197,10 @@
 		gap: 1rem;
 	}
 
+	button {
+		cursor: pointer;
+	}
+
 	.grid-container {
 		display: grid;
 		grid-template-columns: 7rem 30% 14rem;
@@ -236,7 +240,7 @@
 	}
 	.mid p {
 		color: #4c70cc;
-		font-weight: 800;
+		font-weight: 700;
 		font-size: 1.2rem;
 		text-align: center;
 		width: 100%;

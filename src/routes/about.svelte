@@ -78,6 +78,11 @@
 		justify-content: center;
 		flex-direction: column;
 	}
+
+	button {
+		cursor: pointer;
+	}
+
 	#image-grid {
 		display: inline-grid;
 		grid-template-columns: repeat(6, 10%);

@@ -6,9 +6,7 @@
 <Navbar />
 
 <main>
-	<div class="container">
-		<center>Đôi lời</center>
-	</div>
+	<div class="container" />
 	<div class="container-button">
 		<a href="/" class="home-btn">
 			<button type="submit">Home</button>
@@ -30,6 +28,11 @@
 		justify-content: center;
 		gap: 1rem;
 	}
+
+	button {
+		cursor: pointer;
+	}
+
 	.container {
 		width: 60rem;
 		height: 25rem;

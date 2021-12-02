@@ -43,6 +43,11 @@
 		margin-bottom: 5rem;
 		margin-top: 6rem;
 	}
+
+	button {
+		cursor: pointer;
+	}
+
 	.half-circle-container {
 		position: relative;
 		margin-left: 15.46875vw;
