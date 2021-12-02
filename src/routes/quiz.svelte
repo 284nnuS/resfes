@@ -1,46 +1,22 @@
 <script>
 	import Navbar from '../components/navbar.svelte';
+	import { onMount } from 'svelte';
+	import axios from 'axios';
 
 	let current_question = 0;
 
-	let questions = [
-		{
-			content: 'Hello, world',
-			type: 'IT'
-		},
+	let questions;
 
-		{
-			content: 'Hello, world',
-			type: 'IT'
-		},
-
-		{
-			content: 'Hello, world',
-			type: 'IT'
-		},
-
-		{
-			content: 'Hello, world',
-			type: 'IT'
-		},
-
-		{
-			content: 'Hello, world',
-			type: 'IT'
-		},
-
-		{
-			content: 'Hello, world',
-			type: 'IT'
-		},
-
-		{
-			content: 'Hello, world',
-			type: 'IT'
-		}
-	];
-
-	let num_of_question = questions.length;
+	onMount(async () => {
+		axios
+			.get('/api/quiz')
+			.then((response) => {
+				questions = response.data;
+			})
+			.catch((error) => {
+				console.error(error);
+			});
+	});
 
 	let scores = {
 		IT: 0,
@@ -77,7 +53,7 @@
 	function next() {
 		current_question++;
 		prev_btn.disabled = false;
-		if (current_question == num_of_question - 1) {
+		if (current_question == questions.length - 1) {
 			next_btn.style.display = 'none';
 			submit_btn.style.display = 'block';
 		}
@@ -91,62 +67,64 @@
 <Navbar />
 
 <main>
-	<div class="grid-container">
-		<div class="left">
-			<p>{current_question + 1}</p>
+	{#if questions}
+		<div class="grid-container">
+			<div class="left">
+				<p>{current_question + 1}</p>
+			</div>
+			<div class="mid">
+				<p>{questions[current_question].content}</p>
+			</div>
+			<div class="right">
+				<button class="selection" on:click={() => addScore(5)}>
+					<div class="square">
+						<div />
+					</div>
+					Hoàn toàn đúng
+				</button>
+				<button class="selection" on:click={() => addScore(4)}>
+					<div class="square">
+						<div />
+					</div>
+					Thường là đúng
+				</button>
+				<button class="selection" on:click={() => addScore(3)}>
+					<div class="square">
+						<div />
+					</div>
+					Không rõ ràng
+				</button>
+				<button class="selection" on:click={() => addScore(2)}>
+					<div class="square">
+						<div />
+					</div>
+					Thường là sai
+				</button>
+				<button class="selection" on:click={() => addScore(1)}>
+					<div class="square">
+						<div />
+					</div>
+					Hoàn toàn sai
+				</button>
+			</div>
 		</div>
-		<div class="mid">
-			<p>{questions[current_question].content}</p>
+		<div class="n-btn-container">
+			<button class="n-btn" bind:this={prev_btn} on:click={prev} disabled>Previous</button>
+			<button class="n-btn" bind:this={next_btn} on:click={next}>Next</button>
+			<button class="n-btn" bind:this={submit_btn} on:click={submit} style="display: none"
+				>Submit</button
+			>
 		</div>
-		<div class="right">
-			<button class="selection" on:click={() => addScore(5)}>
-				<div class="square">
-					<div />
-				</div>
-				Hoàn toàn đúng
-			</button>
-			<button class="selection" on:click={() => addScore(4)}>
-				<div class="square">
-					<div />
-				</div>
-				Thường là đúng
-			</button>
-			<button class="selection" on:click={() => addScore(3)}>
-				<div class="square">
-					<div />
-				</div>
-				Không rõ ràng
-			</button>
-			<button class="selection" on:click={() => addScore(2)}>
-				<div class="square">
-					<div />
-				</div>
-				Thường là sai
-			</button>
-			<button class="selection" on:click={() => addScore(1)}>
-				<div class="square">
-					<div />
-				</div>
-				Hoàn toàn sai
-			</button>
+		<div class="progress-container">
+			{#each Array(questions.length) as _, i}
+				{#if i != current_question}
+					<button on:click={() => (current_question = i)} />
+				{:else}
+					<button on:click={() => (current_question = i)} class="current" />
+				{/if}
+			{/each}
 		</div>
-	</div>
-	<div class="n-btn-container">
-		<button class="n-btn" bind:this={prev_btn} on:click={prev} disabled>Previous</button>
-		<button class="n-btn" bind:this={next_btn} on:click={next}>Next</button>
-		<button class="n-btn" bind:this={submit_btn} on:click={submit} style="display: none"
-			>Submit</button
-		>
-	</div>
-	<div class="progress-container">
-		{#each Array(num_of_question) as _, i}
-			{#if i != current_question}
-				<button on:click={() => (current_question = i)} />
-			{:else}
-				<button on:click={() => (current_question = i)} class="current" />
-			{/if}
-		{/each}
-	</div>
+	{/if}
 </main>
 
 <style>

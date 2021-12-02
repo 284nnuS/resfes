@@ -2,8 +2,16 @@
 	import Navbar from '../components/navbar.svelte';
 	import { onMount } from 'svelte';
 	import { Base64 } from 'js-base64';
+	import axios from 'axios';
 
 	let dragarea;
+	let imgb64;
+	let ext;
+
+	let state = 'none';
+	let errmessage;
+
+	$: dataurl = `data:image/${ext};base64,${imgb64}`;
 
 	onMount(async () => {
 		['dragenter', 'dragover', 'dragleave', 'drop'].forEach((eventName) => {
@@ -37,14 +45,30 @@
 		if (files.length > 0) {
 			//`
 		}
+		let file = files[0];
+		ext = file.name.split('.').pop();
 		let reader = new FileReader();
 		reader.onload = function (event) {
 			let buffer = event.target.result;
 			let arr = new Uint8Array(buffer);
-			let b64str = Base64.fromUint8Array(arr);
-			console.log(b64str);
+			imgb64 = Base64.fromUint8Array(arr);
 		};
 		reader.readAsArrayBuffer(files[0]);
+	}
+
+	function upload() {
+		state = 'uploading';
+		axios
+			.post('http://localhost:3001/analyze', {
+				payload: imgb64
+			})
+			.then(function (response) {
+				console.log(response);
+				state = 'none';
+			})
+			.catch(function (reason) {
+				state = 'error';
+			});
 	}
 </script>
 
@@ -63,11 +87,15 @@
 			</div>
 		</div>
 		<div id="drop-area" bind:this={dragarea} on:drop={handleDrop}>
-			<img src="/upload.png" alt="Upload" />
-			<p>No file chosen, yet!</p>
+			{#if !imgb64}
+				<img src="/upload.png" alt="Upload" />
+				<p>No file chosen, yet!</p>
+			{:else}
+				<img src={dataurl} id="uploaded-img" alt="Upload" />
+			{/if}
 		</div>
 	</div>
-	<button id="upload-btn">UPLOAD</button>
+	<button id="upload-btn" on:click={upload}>UPLOAD</button>
 	<div class="icon-container">
 		<div>
 			<img src="/icon1.png" alt="1" />
@@ -85,6 +113,16 @@
 			<img src="/icon4.png" alt="5" />
 		</div>
 	</div>
+
+	{#if state !== 'none'}
+		<div id="modal-container">
+			{#if state === 'uploading'}
+				ABC
+			{:else if state === 'error'}
+				XYZ
+			{/if}
+		</div>
+	{/if}
 </main>
 
 <style>
@@ -156,6 +194,7 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		padding: 1rem;
 	}
 
 	#drop-area img {
@@ -168,6 +207,13 @@
 		color: white;
 		padding: 0.5rem;
 		text-align: center;
+		margin: 0;
+	}
+
+	#uploaded-img {
+		width: 100% !important;
+		height: 100%;
+		object-fit: contain;
 	}
 
 	.icon-container {
@@ -202,5 +248,18 @@
 		.icon-container {
 			display: none;
 		}
+	}
+
+	#modal-container {
+		position: fixed;
+		background-color: rgba(60, 60, 60, 0.5);
+		z-index: 100;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 </style>
