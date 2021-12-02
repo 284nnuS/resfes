@@ -29,16 +29,7 @@
 
 	function addScore(score) {
 		scores[questions[current_question].type] += score - (selected[current_question] | 0);
-		if (selected[current_question]) {
-			document.querySelector(
-				`.right .selection:nth-child(${6 - selected[current_question]}) .square div`
-			).style.backgroundColor = 'transparent';
-		}
 		selected[current_question] = score;
-		const colors = ['#01bd10', '#8dd100', '#f8c400', '#fc9700', '#fd3100'];
-		document.querySelector(
-			`.right .selection:nth-child(${6 - score}) .square div`
-		).style.backgroundColor = colors[5 - score];
 	}
 
 	let prev_btn, next_btn, submit_btn;
@@ -77,33 +68,63 @@
 			</div>
 			<div class="right">
 				<button class="selection" on:click={() => addScore(5)}>
-					<div class="square">
-						<div />
-					</div>
+					{#if selected[current_question] === 5}
+						<div class="square" style="background-color: #01bd10">
+							<div />
+						</div>
+					{:else}
+						<div class="square">
+							<div />
+						</div>
+					{/if}
 					Hoàn toàn đúng
 				</button>
 				<button class="selection" on:click={() => addScore(4)}>
-					<div class="square">
-						<div />
-					</div>
+					{#if selected[current_question] === 4}
+						<div class="square" style="background-color: #8dd100">
+							<div />
+						</div>
+					{:else}
+						<div class="square">
+							<div />
+						</div>
+					{/if}
 					Thường là đúng
 				</button>
 				<button class="selection" on:click={() => addScore(3)}>
-					<div class="square">
-						<div />
-					</div>
+					{#if selected[current_question] === 3}
+						<div class="square" style="background-color: #f8c400">
+							<div />
+						</div>
+					{:else}
+						<div class="square">
+							<div />
+						</div>
+					{/if}
 					Không rõ ràng
 				</button>
 				<button class="selection" on:click={() => addScore(2)}>
-					<div class="square">
-						<div />
-					</div>
+					{#if selected[current_question] === 2}
+						<div class="square" style="background-color: #fc9700">
+							<div />
+						</div>
+					{:else}
+						<div class="square">
+							<div />
+						</div>
+					{/if}
 					Thường là sai
 				</button>
 				<button class="selection" on:click={() => addScore(1)}>
-					<div class="square">
-						<div />
-					</div>
+					{#if selected[current_question] === 1}
+						<div class="square" style="background-color: #fd3100">
+							<div />
+						</div>
+					{:else}
+						<div class="square">
+							<div />
+						</div>
+					{/if}
 					Hoàn toàn sai
 				</button>
 			</div>
@@ -183,6 +204,7 @@
 		font-size: 1.2rem;
 		text-align: center;
 		width: 100%;
+		padding: 1rem;
 	}
 
 	.selection {
