@@ -47,9 +47,18 @@
 
 	function handleFile(files) {
 		if (files.length > 0) {
-			//`
+			state = 'error';
+			errmessage = 'Please select only one image file';
+			return;
 		}
 		let file = files[0];
+
+		if (!['image/gif', 'image/jpeg', 'image/png'].includes(file.type)) {
+			state = 'error';
+			errmessage = 'Please select only one image file';
+			return;
+		}
+
 		ext = file.name.split('.').pop();
 		let reader = new FileReader();
 		reader.onload = function (event) {
