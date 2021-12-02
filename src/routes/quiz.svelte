@@ -150,7 +150,7 @@
 				{/if}
 				{#if current_question < questions.length - 1}
 					<button class="n-btn" on:click={() => current_question++}>Next</button>
-				{:else if selected.length === questions.length}
+				{:else if selected.every((x) => x > 0) && selected.length === questions.length}
 					<button class="n-btn" on:click={submit}>Submit</button>
 				{:else}
 					<button class="n-btn" disabled>Submit</button>
