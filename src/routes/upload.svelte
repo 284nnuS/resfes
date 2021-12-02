@@ -93,9 +93,9 @@
 				not too blurry or too small. Example:
 			</p>
 			<div class="img-container">
-				<img src="/image 3.png" alt="" />
-				<img src="/image 4.png" alt="" />
-				<img src="/image 5.png" alt="" />
+				<img src="/image 3.jpg" alt="" />
+				<img src="/image 4.jpg" alt="" />
+				<img src="/image 5.jpg" alt="" />
 			</div>
 		</div>
 		<input

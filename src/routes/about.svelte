@@ -24,7 +24,7 @@
 		</div>
 		<div class="card">
 			<div class="images">
-				<img src="./TDungg.jpeg" alt="" />
+				<img src="./TDungg.jpg" alt="" />
 			</div>
 			<div class="description">
 				<p class="name">Thuỳ Dung</p>
@@ -32,7 +32,7 @@
 		</div>
 		<div class="card">
 			<div class="images">
-				<img src="./VChuong.png" alt="" />
+				<img src="./VChuong.jpg" alt="" />
 			</div>
 			<div class="description">
 				<p class="name">Văn Chương</p>
@@ -48,7 +48,7 @@
 		</div>
 		<div class="card">
 			<div class="images">
-				<img src="./THoai.png" alt="" />
+				<img src="./THoai.jpg" alt="" />
 			</div>
 			<div class="description">
 				<p class="name">Thu Hoai</p>
@@ -80,7 +80,7 @@
 	}
 	#image-grid {
 		display: inline-grid;
-		grid-template-columns: repeat(6, 10%);
+		grid-template-columns: repeat(6, 15%);
 		column-gap: calc(1rem + 2%);
 		justify-content: center;
 		height: 80%;
@@ -124,22 +124,22 @@
 		object-fit: cover;
 	}
 	#image-grid .card:nth-child(1) img {
-		transform: scale(1.1) translate(3%, 4.5%);
+		transform: scale(1.1) translate(3%, 4%);
 	}
 	#image-grid .card:nth-child(2) img {
-		transform: scale(1.2) translate(2%, -6%);
+		transform: scale(1.2) translate(5%, -8%);
 	}
 	#image-grid .card:nth-child(3) img {
-		transform: scale(1.1) translate(0, 0%);
+		transform: scale(1.1);
 	}
 	#image-grid .card:nth-child(4) img {
-		transform: scale(2.7) translate(8%, -4%);
+		transform: scale(1.2) translate(0, -4%);
 	}
 	#image-grid .card:nth-child(5) img {
-		transform: scale(1.6) translate(-13%, 1%);
+		transform: scale(1.5) translate(-5%, -2%);
 	}
 	#image-grid .card:nth-child(6) img {
-		transform: scale(1.6) translate(-5%, 2%);
+		transform: scale(1.5) translate(3%, -1%);
 	}
 
 	#image-grid .card:hover {
