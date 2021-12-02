@@ -82,7 +82,7 @@ svc = pickle.load(open('model.pkl', 'rb'))
 def predict(img):
     ratios = compute_ratios(img)
     if ratios is None:
-        return [0.0]*4
+        return None
     np_arr = np.array([ratios])
     df = pd.DataFrame(np_arr, columns=['Confidence', 'Friendliness', 'Tolerance',
                       'Sense of humour', 'Generosity', 'Leadership', 'Ambitious', 'Sensitive'])

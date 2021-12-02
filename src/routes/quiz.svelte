@@ -2,27 +2,44 @@
 	import Navbar from '../components/navbar.svelte';
 	import { onMount } from 'svelte';
 	import axios from 'axios';
+	import { page } from '$app/stores';
+	import { goto } from '$app/navigation';
+	import Footer from '../components/footer.svelte';
+	import Error from '../components/error.svelte';
+
+	const id = $page.query.get('id');
+
+	let errmessage;
+	let ready;
 
 	let current_question = 0;
 
 	let questions;
 
-	onMount(async () => {
-		axios
-			.get('/api/quiz')
-			.then((response) => {
-				questions = response.data;
-			})
-			.catch((error) => {
-				console.error(error);
-			});
-	});
+	if (id)
+		onMount(async () => {
+			axios
+				.get(`/api/quiz/${id}`)
+				.then((response) => {
+					console.log(response);
+					if (response.data.success) questions = response.data.result;
+					else errmessage = response.data.message;
+				})
+				.catch((error) => {
+					errmessage = '?';
+				})
+				.finally(() => (ready = true));
+		});
+	else {
+		errmessage = 'Invalid request, please try again';
+		ready = true;
+	}
 
 	let scores = {
-		IT: 0,
-		Business: 0,
-		Language: 0,
-		Graphics: 0
+		it: 0,
+		business: 0,
+		language: 0,
+		graphics: 0
 	};
 
 	let selected = [];
@@ -32,121 +49,139 @@
 		selected[current_question] = score;
 	}
 
-	let prev_btn, next_btn, submit_btn;
-
-	function prev() {
-		current_question--;
-		next_btn.style.display = 'block';
-		submit_btn.style.display = 'none';
-		if (current_question == 0) prev_btn.disabled = true;
-	}
-
-	function next() {
-		current_question++;
-		prev_btn.disabled = false;
-		if (current_question == questions.length - 1) {
-			next_btn.style.display = 'none';
-			submit_btn.style.display = 'block';
-		}
-	}
-
 	function submit() {
-		console.log('submit');
+		axios
+			.post(`/api/submit`, {
+				id: id,
+				scores: [scores.it, scores.business, scores.graphics, scores.language]
+			})
+			.then((response) => {
+				if (response.data.success) {
+					goto(`/result?id=${id}`);
+				}
+				console.log(response.data);
+				console.log(scores);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
 	}
 </script>
 
-<Navbar />
-
-<main>
-	{#if questions}
-		<div class="grid-container">
-			<div class="left">
-				<p>{current_question + 1}</p>
+{#if !errmessage && ready}
+	<Navbar />
+	<main>
+		{#if questions}
+			<div class="grid-container">
+				<div class="left">
+					<p>{current_question + 1}</p>
+				</div>
+				<div class="mid">
+					<p>{questions[current_question].content}</p>
+				</div>
+				<div class="right">
+					<button class="selection" on:click={() => addScore(5)}>
+						{#if selected[current_question] === 5}
+							<div class="square" style="background-color: #01bd10">
+								<div />
+							</div>
+						{:else}
+							<div class="square">
+								<div />
+							</div>
+						{/if}
+						Hoàn toàn đúng
+					</button>
+					<button class="selection" on:click={() => addScore(4)}>
+						{#if selected[current_question] === 4}
+							<div class="square" style="background-color: #8dd100">
+								<div />
+							</div>
+						{:else}
+							<div class="square">
+								<div />
+							</div>
+						{/if}
+						Thường là đúng
+					</button>
+					<button class="selection" on:click={() => addScore(3)}>
+						{#if selected[current_question] === 3}
+							<div class="square" style="background-color: #f8c400">
+								<div />
+							</div>
+						{:else}
+							<div class="square">
+								<div />
+							</div>
+						{/if}
+						Không rõ ràng
+					</button>
+					<button class="selection" on:click={() => addScore(2)}>
+						{#if selected[current_question] === 2}
+							<div class="square" style="background-color: #fc9700">
+								<div />
+							</div>
+						{:else}
+							<div class="square">
+								<div />
+							</div>
+						{/if}
+						Thường là sai
+					</button>
+					<button class="selection" on:click={() => addScore(1)}>
+						{#if selected[current_question] === 1}
+							<div class="square" style="background-color: #fd3100">
+								<div />
+							</div>
+						{:else}
+							<div class="square">
+								<div />
+							</div>
+						{/if}
+						Hoàn toàn sai
+					</button>
+				</div>
 			</div>
-			<div class="mid">
-				<p>{questions[current_question].content}</p>
-			</div>
-			<div class="right">
-				<button class="selection" on:click={() => addScore(5)}>
-					{#if selected[current_question] === 5}
-						<div class="square" style="background-color: #01bd10">
-							<div />
-						</div>
-					{:else}
-						<div class="square">
-							<div />
-						</div>
-					{/if}
-					Hoàn toàn đúng
-				</button>
-				<button class="selection" on:click={() => addScore(4)}>
-					{#if selected[current_question] === 4}
-						<div class="square" style="background-color: #8dd100">
-							<div />
-						</div>
-					{:else}
-						<div class="square">
-							<div />
-						</div>
-					{/if}
-					Thường là đúng
-				</button>
-				<button class="selection" on:click={() => addScore(3)}>
-					{#if selected[current_question] === 3}
-						<div class="square" style="background-color: #f8c400">
-							<div />
-						</div>
-					{:else}
-						<div class="square">
-							<div />
-						</div>
-					{/if}
-					Không rõ ràng
-				</button>
-				<button class="selection" on:click={() => addScore(2)}>
-					{#if selected[current_question] === 2}
-						<div class="square" style="background-color: #fc9700">
-							<div />
-						</div>
-					{:else}
-						<div class="square">
-							<div />
-						</div>
-					{/if}
-					Thường là sai
-				</button>
-				<button class="selection" on:click={() => addScore(1)}>
-					{#if selected[current_question] === 1}
-						<div class="square" style="background-color: #fd3100">
-							<div />
-						</div>
-					{:else}
-						<div class="square">
-							<div />
-						</div>
-					{/if}
-					Hoàn toàn sai
-				</button>
-			</div>
-		</div>
-		<div class="n-btn-container">
-			<button class="n-btn" bind:this={prev_btn} on:click={prev} disabled>Previous</button>
-			<button class="n-btn" bind:this={next_btn} on:click={next}>Next</button>
-			<button class="n-btn" bind:this={submit_btn} on:click={submit} style="display: none"
-				>Submit</button
-			>
-		</div>
-		<div class="progress-container">
-			{#each Array(questions.length) as _, i}
-				{#if i != current_question}
-					<button on:click={() => (current_question = i)} />
+			<div class="n-btn-container">
+				{#if current_question > 0}
+					<button class="n-btn" on:click={() => current_question--}>Previous</button>
 				{:else}
-					<button on:click={() => (current_question = i)} class="current" />
+					<button class="n-btn" disabled>Previous</button>
 				{/if}
-			{/each}
-		</div>
-	{/if}
-</main>
+				{#if current_question < questions.length - 1}
+					<button class="n-btn" on:click={() => current_question++}>Next</button>
+				{:else if selected.length === questions.length}
+					<button class="n-btn" on:click={submit}>Submit</button>
+				{:else}
+					<button class="n-btn" disabled>Submit</button>
+				{/if}
+			</div>
+			<div class="progress-container">
+				{#each Array(questions.length) as _, i}
+					{#if i === current_question}
+						<button on:click={() => (current_question = i)} class="current" />
+					{:else if selected[i]}
+						<button on:click={() => (current_question = i)} class="selected" />
+					{:else}
+						<button on:click={() => (current_question = i)} />
+					{/if}
+				{/each}
+			</div>
+		{/if}
+	</main>
+	<Footer />
+{:else if ready}
+	<main
+		style="
+		background-color: #fff;
+		height: 100vh;
+		padding: 0;
+		gap: 1rem;
+		"
+	>
+		<Error {errmessage} btnText="Take Me Back" callback={() => goto('/')} />
+	</main>
+{/if}
 
 <style>
 	main {
@@ -161,6 +196,7 @@
 		justify-content: center;
 		gap: 1rem;
 	}
+
 	.grid-container {
 		display: grid;
 		grid-template-columns: 7rem 30% 14rem;
@@ -307,6 +343,15 @@
 	}
 
 	.progress-container button.current:hover {
+		border-color: white;
+	}
+
+	.progress-container button.selected {
+		background-color: #7a7a7a;
+		border-color: white;
+	}
+
+	.progress-container button.selected:hover {
 		border-color: white;
 	}
 </style>

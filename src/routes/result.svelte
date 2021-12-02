@@ -1,51 +1,102 @@
 <script>
 	import Navbar from '../components/navbar.svelte';
+	import axios from 'axios';
+	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
+	import Footer from '../components/footer.svelte';
+	import Error from '../components/error.svelte';
+
+	let id = $page.query.get('id');
+	let errmessage;
+	let ready = false;
+	let result;
+
+	if (id)
+		onMount(async () => {
+			axios
+				.get(`/api/view/${id}`)
+				.then((response) => {
+					if (response.data.success) result = response.data.result;
+					else errmessage = response.data.message;
+				})
+				.catch((error) => {
+					errmessage = '?';
+				})
+				.finally(() => (ready = true));
+		});
+	else {
+		errmessage = 'Invalid request, please try again';
+		ready = true;
+	}
 </script>
 
-<Navbar />
-
-<main>
-	<div class="content">
-		<b> LEVELS OF FITNESS FOR MAJORS THROUGH FACE ANALYSIS </b>
-	</div>
-	<div class="container-result">
-		<div class="container-result-small">
-			<div class="round-icon" />
-			<div class="square-result" />
-		</div>
-		<div class="container-result-small">
-			<div class="round-icon" />
-			<div class="square-result" />
-		</div>
-		<div class="container-result-small">
-			<div class="round-icon" />
-			<div class="square-result" />
-		</div>
-		<div class="container-result-small">
-			<div class="round-icon" />
-			<div class="square-result" />
-		</div>
-	</div>
-	<div class="container-button">
-		<a href="/" class="home-btn">
-			<button type="submit">Home</button>
-		</a>
-	</div>
-	<div class="icon-container">
-		<div>
-			<img src="/icon1.png" alt="1" />
-		</div>
-		<div>
-			<img src="/icon2.png" alt="2" />
-		</div>
-		<div>
-			<img src="/icon3.png" alt="3" />
-		</div>
-		<div>
-			<img src="/icon4.png" alt="4" />
-		</div>
-	</div>
-</main>
+{#if !errmessage && ready}
+	<Navbar />
+	<main>
+		{#if result}
+			<div class="content">
+				<b> LEVELS OF FITNESS FOR MAJORS THROUGH FACE ANALYSIS </b>
+			</div>
+			<div class="container-result">
+				<div class="container-result-small">
+					<div class="round-icon">
+						<img src="/it.png" alt="" />
+					</div>
+					<div class="square-result"><p>{Math.round(result[0] * 10) / 10}%</p></div>
+				</div>
+				<div class="container-result-small">
+					<div class="round-icon">
+						<img src="/business.png" alt="" />
+					</div>
+					<div class="square-result"><p>{Math.round(result[1] * 10) / 10}%</p></div>
+				</div>
+				<div class="container-result-small">
+					<div class="round-icon">
+						<img src="/graphic.png" alt="" />
+					</div>
+					<div class="square-result"><p>{Math.round(result[2] * 10) / 10}%</p></div>
+				</div>
+				<div class="container-result-small">
+					<div class="round-icon">
+						<img src="/language.png" alt="" />
+					</div>
+					<div class="square-result"><p>{Math.round(result[3] * 10) / 10}%</p></div>
+				</div>
+			</div>
+			<div class="container-button">
+				<a href="/" class="home-btn">
+					<button type="submit">Home</button>
+				</a>
+			</div>
+			<div class="icon-container">
+				<div>
+					<img src="/icon1.png" alt="" />
+				</div>
+				<div>
+					<img src="/icon2.png" alt="" />
+				</div>
+				<div>
+					<img src="/icon3.png" alt="" />
+				</div>
+				<div>
+					<img src="/icon4.png" alt="" />
+				</div>
+			</div>
+		{/if}
+	</main>
+	<Footer />
+{:else if ready}
+	<main
+		style="
+		background-color: #fff;
+		height: 100vh;
+		padding: 0;
+		gap: 1rem;
+		"
+	>
+		<Error {errmessage} btnText="Take Me Back" callback={() => goto('/')} />
+	</main>
+{/if}
 
 <style>
 	main {
@@ -127,38 +178,43 @@
 	.container-result-small {
 		margin: 2rem;
 		position: relative;
-
 		width: 160px;
 	}
 
 	.round-icon {
 		position: absolute;
-
-		width: 88px;
-
-		height: 88px;
-
+		width: 5.5rem;
+		height: 5.5rem;
 		border-radius: 50%;
-
-		background-color: blue;
-
-		border: 2px solid #000;
-
-		left: 55%;
-
+		border: 3px solid #714992;
+		background-color: white;
+		left: 60%;
 		transform: translate(-50%, -50%);
+		padding: 1rem;
+	}
+
+	.round-icon img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
 	}
 
 	.square-result {
-		width: 172px;
-
-		height: 160px;
-
+		width: 11rem;
+		height: 10rem;
 		border-radius: 15%;
+		border: 5px solid #20519b;
+		background-color: white;
+		padding-top: 1rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 
-		background-color: aqua;
-
-		border: 2px solid #000;
+	.square-result p {
+		color: #20519b;
+		font-weight: 700;
+		font-size: 3.25rem;
 	}
 
 	@media only screen and (max-height: 800px) {

@@ -24,8 +24,8 @@ async def analyze(request: Request):
 
         if face_analyze is None:
             return {
-                "success": True,
-                "message": "Your face is not detected in your image. Please try again"
+                "success": False,
+                "message": "Your face is not detected in image. Please try again"
             }
 
         id = str(uuid.uuid4())
@@ -34,6 +34,7 @@ async def analyze(request: Request):
             "done": False,
             "data": face_analyze,
         }
+
         return {
             "success": True,
             "id": id
@@ -52,16 +53,18 @@ async def submit(request: Request):
         id = json["id"]
         scores = json["scores"]
 
+        print(scores)
+
         if (type(id) != str or type(scores) != list or len(scores) != 4):
             return {
                 "success": False,
-                "message": "The request is malformed. Please try again"
+                "message": "The request is malformed. Please try again "
             }
 
         if id not in cache:
             return {
                 "success": False,
-                "message": "This ID is not available"
+                "message": "The request is malformed. Please try again"
             }
 
         el = cache[id]
@@ -69,7 +72,7 @@ async def submit(request: Request):
         if el['done'] is True:
             return {
                 "success": False,
-                "message": "This ID is not available"
+                "message": "The request is malformed. Please try again"
             }
 
         face_analyze = el['data']
@@ -85,7 +88,6 @@ async def submit(request: Request):
 
         return {
             "success": True,
-            "result": result
         }
     except:
         return {
@@ -100,14 +102,14 @@ async def view(id: str):
         if id not in cache:
             return {
                 "success": False,
-                "message": "This ID is not available"
+                "message": "The request is malformed. Please try again"
             }
         el = cache[id]
 
         if el['done'] is False:
             return {
                 "success": False,
-                "message": "This ID is not available"
+                "message": "The request is malformed. Please try again"
             }
         return {
             "success": True,
@@ -135,8 +137,14 @@ language = read_to_json('../quizs/language.json')
 num_of_question = 3
 
 
-@ app.get("/api/quiz")
-async def quiz():
+@ app.get("/api/quiz/{id}")
+async def quiz(id: str):
+    if id not in cache:
+        return {
+            "success": False,
+            "message": "The request is malformed. Please try again"
+        }
+
     result = []
 
     temp = it
@@ -171,4 +179,7 @@ async def quiz():
             'type': 'language'
         })
 
-    return result
+    return {
+        "success": True,
+        "result": result,
+    }

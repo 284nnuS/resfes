@@ -1,18 +1,27 @@
+<script context="module">
+	export const load = async ({ page }) => ({
+		props: {
+			key: page.path
+		}
+	});
+</script>
+
 <script>
 	import 'normalize.css';
 	import 'font-awesome/css/font-awesome.css';
+	import Transition from '../components/transition.svelte';
 
-	import Footer from '../components/footer.svelte';
+	export let key;
 </script>
 
 <div class="flex-layout">
-	<slot />
-	<Footer />
+	<Transition refresh={key}>
+		<slot />
+	</Transition>
 </div>
 
 <style>
 	.flex-layout {
-		overflow: hidden;
 		font-family: Poppins;
 	}
 </style>

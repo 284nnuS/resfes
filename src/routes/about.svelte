@@ -1,5 +1,14 @@
 <script>
 	import Navbar from '../components/navbar.svelte';
+	import Footer from '../components/footer.svelte';
+
+	function preload(src) {
+		return new Promise(function (resolve) {
+			let img = new Image();
+			img.onload = resolve;
+			img.src = src;
+		});
+	}
 </script>
 
 <Navbar />
@@ -7,7 +16,7 @@
 	<div id="image-grid">
 		<div class="card">
 			<div class="images">
-				<img src="./TDung.jpg" alt="Team Member" srcset="" />
+				<img src="./TDung.jpg" alt="" />
 			</div>
 			<div class="description">
 				<p class="name">Trung Dũng</p>
@@ -15,7 +24,7 @@
 		</div>
 		<div class="card">
 			<div class="images">
-				<img src="./TDungg.jpeg" alt="Team Member" srcset="" />
+				<img src="./TDungg.jpeg" alt="" />
 			</div>
 			<div class="description">
 				<p class="name">Thuỳ Dung</p>
@@ -23,7 +32,7 @@
 		</div>
 		<div class="card">
 			<div class="images">
-				<img src="./VChuong.png" alt="Team Member" srcset="" />
+				<img src="./VChuong.png" alt="" />
 			</div>
 			<div class="description">
 				<p class="name">Văn Chương</p>
@@ -31,7 +40,7 @@
 		</div>
 		<div class="card">
 			<div class="images">
-				<img src="./Mentor.jpg" alt="Team Member" srcset="" />
+				<img src="./Mentor.jpg" alt="" />
 			</div>
 			<div class="description">
 				<p class="name">Gia Trí</p>
@@ -39,7 +48,7 @@
 		</div>
 		<div class="card">
 			<div class="images">
-				<img src="./THoai.png" alt="Team Member" srcset="" />
+				<img src="./THoai.png" alt="" />
 			</div>
 			<div class="description">
 				<p class="name">Thu Hoai</p>
@@ -47,7 +56,7 @@
 		</div>
 		<div class="card">
 			<div class="images">
-				<img src="./VSon.jpg" alt="Team Member" srcset="" />
+				<img src="./VSon.jpg" alt="" />
 			</div>
 			<div class="description">
 				<p class="name">Văn Sơn</p>
@@ -55,6 +64,7 @@
 		</div>
 	</div>
 </main>
+<Footer />
 
 <style>
 	main {

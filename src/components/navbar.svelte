@@ -29,9 +29,10 @@
 		position: fixed;
 		height: 6rem;
 		padding: 3rem 3rem 0 3rem;
+		top: 0;
 		left: 0;
 		right: 0;
-		z-index: 100;
+		z-index: 10;
 		display: flex;
 		justify-content: space-between;
 	}

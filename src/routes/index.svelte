@@ -1,5 +1,6 @@
 <script>
 	import Navbar from '../components/navbar.svelte';
+	import Footer from '../components/footer.svelte';
 </script>
 
 <Navbar color="#2d3e69" />
@@ -7,19 +8,19 @@
 	<div class="half-circle-container">
 		<div class="half-circle" />
 		<a href="/upload" class="play-link">
-			<img src="/play.png" alt="Play" />
+			<img src="/play.png" alt="" />
 		</a>
 		<div class="icon" id="icona">
-			<img src="/icon1.png" alt="Play" />
+			<img src="/icon1.png" alt="" />
 		</div>
 		<div class="icon" id="iconb">
-			<img src="/icon2.png" alt="Play" />
+			<img src="/icon2.png" alt="" />
 		</div>
 		<div class="icon" id="iconc">
-			<img src="/icon3.png" alt="Play" />
+			<img src="/icon3.png" alt="" />
 		</div>
 		<div class="icon" id="icond">
-			<img src="/icon4.png" alt="Play" />
+			<img src="/icon4.png" alt="" />
 		</div>
 	</div>
 	<div class="left-container">
@@ -35,6 +36,7 @@
 		</a>
 	</div>
 </main>
+<Footer />
 
 <style>
 	main {
