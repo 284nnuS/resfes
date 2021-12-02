@@ -80,10 +80,11 @@
 	}
 	#image-grid {
 		display: inline-grid;
-		grid-template-columns: repeat(6, 15%);
+		grid-template-columns: repeat(6, 10%);
 		column-gap: calc(1rem + 2%);
 		justify-content: center;
 		height: 80%;
+		width: 100%;
 	}
 	.card {
 		border-radius: 20px;
