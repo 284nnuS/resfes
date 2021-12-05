@@ -25,7 +25,7 @@ async def analyze(request: Request):
         if face_analyze is None:
             return {
                 "success": False,
-                "message": "Your face is not detected in image. Please try again"
+                "message": "Khuôn mặt của bản không được tìm thấy trong bức ảnh. Vui lòng thử lại"
             }
 
         id = str(uuid.uuid4())
@@ -42,7 +42,7 @@ async def analyze(request: Request):
     except:
         return {
             "success": False,
-            "message": "The request is malformed. Please try again"
+            "message": "Yêu cầu bị lỗi. Vui lòng thử lại"
         }
 
 
@@ -58,13 +58,13 @@ async def submit(request: Request):
         if (type(id) != str or type(scores) != list or len(scores) != 4):
             return {
                 "success": False,
-                "message": "The request is malformed. Please try again "
+                "message": "Yêu cầu bị lỗi. Vui lòng thử lại"
             }
 
         if id not in cache:
             return {
                 "success": False,
-                "message": "The request is malformed. Please try again"
+                "message": "Yêu cầu bị lỗi. Vui lòng thử lại"
             }
 
         el = cache[id]
@@ -72,7 +72,7 @@ async def submit(request: Request):
         if el['done'] is True:
             return {
                 "success": False,
-                "message": "The request is malformed. Please try again"
+                "message": "Yêu cầu bị lỗi. Vui lòng thử lại"
             }
 
         face_analyze = el['data']
@@ -92,7 +92,7 @@ async def submit(request: Request):
     except:
         return {
             "success": False,
-            "message": "The request is malformed. Please try again"
+            "message": "Yêu cầu bị lỗi. Vui lòng thử lại"
         }
 
 
@@ -102,14 +102,14 @@ async def view(id: str):
         if id not in cache:
             return {
                 "success": False,
-                "message": "The request is malformed. Please try again"
+                "message": "Yêu cầu bị lỗi. Vui lòng thử lại"
             }
         el = cache[id]
 
         if el['done'] is False:
             return {
                 "success": False,
-                "message": "The request is malformed. Please try again"
+                "message": "Yêu cầu bị lỗi. Vui lòng thử lại"
             }
         return {
             "success": True,
@@ -119,7 +119,7 @@ async def view(id: str):
     except:
         return {
             "success": False,
-            "message": "The request is malformed. Please try again"
+            "message": "Yêu cầu bị lỗi. Vui lòng thử lại"
         }
 
 
@@ -142,7 +142,7 @@ async def quiz(id: str):
     if id not in cache:
         return {
             "success": False,
-            "message": "The request is malformed. Please try again"
+            "message": "Yêu cầu bị lỗi. Vui lòng thử lại"
         }
 
     result = []

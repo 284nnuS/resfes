@@ -24,15 +24,14 @@
 		</div>
 	</div>
 	<div class="left-container">
-		<h2>FACE - PERSONALITY</h2>
-		<h3>Upload your photo</h3>
+		<h2>Khuôn mặt - Tính cách</h2>
+		<h3>Tải ảnh của bạn lên</h3>
 		<p>
-			Our system will analyze your face. Combined with the results from the Multiple Intelligence
-			questions, you will know which major your personality and face is suitable for at FPT
-			University.
+			Hệ thống của chúng tôi sẽ phân tích khuôn mặt của bạn. Kết hợp với kết quả câu hỏi Đa Trí Tuệ,
+			bạn sẽ biết được tính cách và khuôn mặt của mình phù hợp với chuyên ngành nào tại đại học FPT.
 		</p>
 		<a href="upload" class="start-btn">
-			<button type="submit">START</button>
+			<button type="submit">Bắt đầu</button>
 		</a>
 	</div>
 </main>

@@ -35,7 +35,7 @@
 	<main>
 		{#if result}
 			<div class="content">
-				<b> LEVELS OF FITNESS FOR MAJORS THROUGH FACE ANALYSIS </b>
+				<b>MỨC ĐỘ PHÙ HỢP VỚI CÁC NGÀNH HỌC THÔNG QUA PHÂN TÍCH KHUÔN MẶT</b>
 			</div>
 			<div class="container-result">
 				<div class="container-result-small">
@@ -53,7 +53,7 @@
 					</div>
 					<div class="square-result">
 						<p>{Math.round(result[1] * 10) / 10}%</p>
-						Business
+						Kinh tế
 					</div>
 				</div>
 				<div class="container-result-small">
@@ -62,7 +62,7 @@
 					</div>
 					<div class="square-result">
 						<p>{Math.round(result[2] * 10) / 10}%</p>
-						Graphics
+						Đồ họa
 					</div>
 				</div>
 				<div class="container-result-small">
@@ -71,13 +71,13 @@
 					</div>
 					<div class="square-result">
 						<p>{Math.round(result[3] * 10) / 10}%</p>
-						Language
+						Ngôn ngữ
 					</div>
 				</div>
 			</div>
 			<div class="container-button">
 				<a href="/" class="home-btn">
-					<button type="submit">Home</button>
+					<button type="submit">Trang chủ</button>
 				</a>
 			</div>
 			<div class="icon-container">

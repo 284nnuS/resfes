@@ -48,14 +48,14 @@
 	function handleFile(files) {
 		if (files.length > 1) {
 			state = 'error';
-			errmessage = 'Please select only one image file';
+			errmessage = 'Vui lòng chọn chỉ một bức ảnh';
 			return;
 		}
 		let file = files[0];
 
 		if (!['image/gif', 'image/jpeg', 'image/png'].includes(file.type)) {
 			state = 'error';
-			errmessage = 'Please select only one image file';
+			errmessage = 'Vui lòng chọn chỉ một bức ảnh';
 			return;
 		}
 
@@ -98,8 +98,8 @@
 	<div class="top-container">
 		<div class="column-left">
 			<p style="background-color: #fff; color: #86A8FF">
-				Note: Portrait photos have a full face, so avoid photos with a slanted face angle as well as
-				not too blurry or too small. Example:
+				Lưu ý: Ảnh chân dung có đầy đủ khuôn mặt, nên tránh ảnh có góc nghiêng mặt cũng như không
+				quá mờ hoặc quá nhỏ. Thí dụ:
 			</p>
 			<div class="img-container">
 				<img src="/image 3.jpg" alt="" />
@@ -122,16 +122,16 @@
 		>
 			{#if !imgb64}
 				<img src="/upload.png" alt="" />
-				<p>No file chosen, yet!</p>
+				<p>Chưa có ảnh!</p>
 			{:else}
 				<img src={dataurl} id="uploaded-img" alt="" />
 			{/if}
 		</button>
 	</div>
 	{#if imgb64}
-		<button id="upload-btn" on:click={upload}>UPLOAD</button>
+		<button id="upload-btn" on:click={upload}>Nạp ảnh</button>
 	{:else}
-		<button id="upload-btn" disabled>UPLOAD</button>
+		<button id="upload-btn" disabled>Nạp ảnh</button>
 	{/if}
 	<div class="icon-container">
 		<div>
@@ -308,7 +308,7 @@
 						</rect>
 					</g>
 				</svg>
-				<p>Processing your image</p>
+				<p>Đang xử lý hình ảnh</p>
 			{:else if state === 'error'}
 				<Error {errmessage} btnText="OK" callback={() => (state = 'none')} color="white" />
 			{/if}

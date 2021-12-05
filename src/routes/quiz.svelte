@@ -144,16 +144,16 @@
 			</div>
 			<div class="n-btn-container">
 				{#if current_question > 0}
-					<button class="n-btn" on:click={() => current_question--}>Previous</button>
+					<button class="n-btn" on:click={() => current_question--}>Lùi lại</button>
 				{:else}
-					<button class="n-btn" disabled>Previous</button>
+					<button class="n-btn" disabled>Lùi lại</button>
 				{/if}
 				{#if current_question < questions.length - 1}
-					<button class="n-btn" on:click={() => current_question++}>Next</button>
+					<button class="n-btn" on:click={() => current_question++}>Tiếp theo</button>
 				{:else if selected.reduce((acc, cv) => (cv ? acc + 1 : acc), 0) === questions.length}
-					<button class="n-btn" on:click={submit}>Submit</button>
+					<button class="n-btn" on:click={submit}>Gửi</button>
 				{:else}
-					<button class="n-btn" disabled>Submit</button>
+					<button class="n-btn" disabled>Gửi</button>
 				{/if}
 			</div>
 			<div class="progress-container">
