@@ -179,6 +179,7 @@ async def quiz(id: str):
             'type': 'language'
         })
 
+    random.shuffle(result)
     return {
         "success": True,
         "result": result,
