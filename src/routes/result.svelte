@@ -5,6 +5,7 @@
 	import { page } from '$app/stores';
 	import Footer from '../components/footer.svelte';
 	import Error from '../components/error.svelte';
+	import { goto, invalidate, prefetch, prefetchRoutes } from '$app/navigation';
 
 	let id = $page.query.get('id');
 	let errmessage;
