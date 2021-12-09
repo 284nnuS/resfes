@@ -28,6 +28,8 @@ async def analyze(request: Request):
                 "message": "Khuôn mặt của bản không được tìm thấy trong bức ảnh. Vui lòng thử lại"
             }
 
+        print(face_analyze)
+
         id = str(uuid.uuid4())
 
         cache[id] = {

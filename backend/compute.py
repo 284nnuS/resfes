@@ -86,4 +86,5 @@ def predict(img):
     np_arr = np.array([ratios])
     df = pd.DataFrame(np_arr, columns=['Confidence', 'Friendliness', 'Tolerance',
                       'Sense of humour', 'Generosity', 'Leadership', 'Ambitious', 'Sensitive'])
+    print(ratios)
     return svc.predict_proba(df)[0]
