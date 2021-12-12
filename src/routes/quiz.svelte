@@ -21,12 +21,11 @@
 			axios
 				.get(`/api/quiz/${id}`)
 				.then((response) => {
-					console.log(response);
 					if (response.data.success) questions = response.data.result;
 					else errmessage = response.data.message;
 				})
-				.catch((error) => {
-					errmessage = '?';
+				.catch(function (reason) {
+					errmessage = reason.message;
 				})
 				.finally(() => (ready = true));
 		});
@@ -59,11 +58,9 @@
 				if (response.data.success) {
 					goto(`/result?id=${id}`);
 				}
-				console.log(response.data);
-				console.log(scores);
 			})
-			.catch((error) => {
-				console.log(error);
+			.catch(function (reason) {
+				errmessage = reason.message;
 			});
 	}
 </script>

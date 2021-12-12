@@ -76,7 +76,6 @@
 				payload: imgb64
 			})
 			.then(function (response) {
-				console.log(response.data);
 				if (response.data.success) {
 					goto(`/quiz?id=${response.data.id}`);
 				} else {
