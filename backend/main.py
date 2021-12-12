@@ -25,7 +25,7 @@ async def analyze(request: Request):
         if face_analyze is None:
             return {
                 "success": False,
-                "message": "Khuôn mặt của bản không được tìm thấy trong bức ảnh. Vui lòng thử lại"
+                "message": "Khuôn mặt của bạn không được tìm thấy trong bức ảnh. Vui lòng thử lại"
             }
 
         print(face_analyze)
