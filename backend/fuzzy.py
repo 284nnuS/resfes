@@ -7,7 +7,7 @@ face_analyze = ctrl.Antecedent(np.arange(0, 1.01, 0.01), 'Face Analyze')
 multiple_intelligence = ctrl.Antecedent(
     np.arange(3, 13, 1), 'Multiple Intelligence')
 coverage_of_majors = ctrl.Consequent(
-    np.arange(0, 101, 1), 'Coverage of Majors')
+    np.arange(0, 76, 1), 'Coverage of Majors')
 
 face_analyze['low'] = fuzz.trapmf(face_analyze.universe, [0, 0, 0.08, 0.18])
 face_analyze['medium'] = fuzz.trimf(face_analyze.universe, [0.08, 0.18, 0.35])
@@ -25,15 +25,15 @@ multiple_intelligence['high medium'] = fuzz.trimf(
 multiple_intelligence['high'] = fuzz.trapmf(
     multiple_intelligence.universe, [9, 11, 12, 12])
 
-coverage_of_majors['low'] = fuzz.trimf(coverage_of_majors.universe, [0, 0, 25])
+coverage_of_majors['low'] = fuzz.trimf(coverage_of_majors.universe, [0, 0, 19])
 coverage_of_majors['low medium'] = fuzz.trimf(
-    coverage_of_majors.universe, [0, 25, 50])
+    coverage_of_majors.universe, [0, 19, 38])
 coverage_of_majors['medium'] = fuzz.trimf(
-    coverage_of_majors.universe, [25, 50, 75])
+    coverage_of_majors.universe, [19, 38, 57])
 coverage_of_majors['high medium'] = fuzz.trimf(
-    coverage_of_majors.universe, [50, 75, 100])
+    coverage_of_majors.universe, [38, 57, 76])
 coverage_of_majors['high'] = fuzz.trimf(
-    coverage_of_majors.universe, [75, 100, 100])
+    coverage_of_majors.universe, [57, 76, 76])
 
 # face_analyze.view()
 # multiple_intelligence.view()
