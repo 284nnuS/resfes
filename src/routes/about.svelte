@@ -16,7 +16,7 @@
 	<div id="image-grid">
 		<div class="card">
 			<div class="images">
-				<img src="./TDung.jpg" alt="" />
+				<img src="/TDung.jpg" alt="" />
 			</div>
 			<div class="description">
 				<p class="name">Trung Dũng</p>
@@ -24,7 +24,7 @@
 		</div>
 		<div class="card">
 			<div class="images">
-				<img src="./TDungg.jpg" alt="" />
+				<img src="/TDungg.jpg" alt="" />
 			</div>
 			<div class="description">
 				<p class="name">Thuỳ Dung</p>
@@ -32,7 +32,7 @@
 		</div>
 		<div class="card">
 			<div class="images">
-				<img src="./VChuong.jpg" alt="" />
+				<img src="/VChuong.jpg" alt="" />
 			</div>
 			<div class="description">
 				<p class="name">Văn Chương</p>
@@ -40,7 +40,7 @@
 		</div>
 		<div class="card">
 			<div class="images">
-				<img src="./Mentor.jpg" alt="" />
+				<img src="/Mentor.jpg" alt="" />
 			</div>
 			<div class="description">
 				<p class="name">Gia Trí</p>
@@ -48,7 +48,7 @@
 		</div>
 		<div class="card">
 			<div class="images">
-				<img src="./THoai.jpg" alt="" />
+				<img src="/THoai.jpg" alt="" />
 			</div>
 			<div class="description">
 				<p class="name">Thu Hoai</p>
@@ -56,7 +56,7 @@
 		</div>
 		<div class="card">
 			<div class="images">
-				<img src="./VSon.jpg" alt="" />
+				<img src="/VSon.jpg" alt="" />
 			</div>
 			<div class="description">
 				<p class="name">Văn Sơn</p>
