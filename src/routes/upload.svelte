@@ -92,6 +92,11 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Tải lên</title>
+</svelte:head>
+
+
 <Navbar />
 <main>
 	<div class="top-container">
@@ -432,6 +437,10 @@
 		align-items: center;
 		padding: 1.5rem;
 		margin: 1rem;
+	}
+
+	.icon-container div:nth-child(1) {
+		padding: 2rem;
 	}
 
 	.icon-container div:nth-child(3) {

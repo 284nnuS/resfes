@@ -20,9 +20,14 @@
 	</Transition>
 </div>
 
+
+<svelte:head>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Signika">
+</svelte:head>
+
 <style>
 	.flex-layout {
-		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
-			'Open Sans', 'Helvetica Neue', sans-serif;
+		font-family: 'Signika';
 	}
 </style>

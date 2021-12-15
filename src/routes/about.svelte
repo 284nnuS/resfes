@@ -11,6 +11,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Giới thiệu</title>
+</svelte:head>
+
 <Navbar />
 <main>
 	<div id="image-grid">
@@ -51,7 +55,7 @@
 				<img src="/THoai.jpg" alt="" />
 			</div>
 			<div class="description">
-				<p class="name">Thu Hoai</p>
+				<p class="name">Thu Hoài</p>
 			</div>
 		</div>
 		<div class="card">
@@ -144,8 +148,8 @@
 		transform: scale(1.5) translate(3%, -1%);
 	}
 
-	#image-grid .card:hover {
+	/* #image-grid .card:hover {
 		transform: scale(1.03);
 		transition: 0.5s ease-in-out;
-	}
+	} */
 </style>

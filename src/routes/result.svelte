@@ -31,6 +31,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Kết quả</title>
+</svelte:head>
+
 {#if !errmessage && ready}
 	<Navbar />
 	<main>

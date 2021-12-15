@@ -23,11 +23,15 @@
 	</div>
 	<div class="container-button">
 		<a href="/" class="home-btn">
-			<button type="submit">Home</button>
+			<button type="submit">Trang chủ</button>
 		</a>
 	</div>
 </main>
 <Footer />
+
+<svelte:head>
+	<title>Đôi lời</title>
+</svelte:head>
 
 <style>
 	main {

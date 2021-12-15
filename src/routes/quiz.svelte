@@ -65,6 +65,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Quiz</title>
+</svelte:head>
+
 {#if !errmessage && ready}
 	<Navbar />
 	<main>

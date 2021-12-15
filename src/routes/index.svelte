@@ -23,12 +23,13 @@
 			<img src="/icon4.png" alt="" />
 		</div>
 	</div>
+
 	<div class="left-container">
-		<h2>Khuôn mặt - Tính cách</h2>
-		<h3>Tải ảnh của bạn lên</h3>
+		<h2>ỨNG DỤNG <br/> TƯ VẤN NGÀNH HỌC</h2>
+		<h3>Tải lên ảnh của bạn</h3>
 		<p>
-			Hệ thống của chúng tôi sẽ phân tích khuôn mặt của bạn. Kết hợp với kết quả câu hỏi Đa Trí Tuệ,
-			bạn sẽ biết được tính cách và khuôn mặt của mình phù hợp với chuyên ngành nào tại đại học FPT.
+			Ứng dụng của chúng tôi sẽ sử dụng AI phân tích khuôn mặt kết hợp với các câu hỏi dựa trên
+			Thuyết đa trí tuệ để hỗ trợ tư vấn ngành học phù hợp với bạn tại Đại học FPT.
 		</p>
 		<a href="upload" class="start-btn">
 			<button type="submit">Bắt đầu</button>
@@ -36,6 +37,10 @@
 	</div>
 </main>
 <Footer />
+
+<svelte:head>
+	<title>Trang chủ</title>
+</svelte:head>
 
 <style>
 	main {
@@ -110,6 +115,12 @@
 		left: calc(15rem * -0.95105651629);
 		right: calc(15rem * 0.95105651629);
 	}
+
+	#icona img {
+		width: 6rem;
+		height: 6rem;
+	}
+
 	#iconb {
 		bottom: calc(15rem * 0.91354545764 - 1rem);
 		left: calc(15rem * -0.40673664307);
@@ -130,11 +141,12 @@
 		position: absolute;
 		bottom: 5rem;
 		padding: 3rem;
-		width: 25vw;
+		width: 30vw;
 		height: 60vh;
 		justify-content: center;
 		display: flex;
 		flex-direction: column;
+		margin-top: 5rem;
 		gap: 0.5rem;
 	}
 
@@ -148,7 +160,7 @@
 	.left-container h2 {
 		font-size: 2.25rem;
 		font-weight: 700;
-		color: #efb0c9;
+		color: #ca608b;
 		width: 66%;
 	}
 
@@ -162,12 +174,13 @@
 	.left-container p {
 		font-size: 1.25rem;
 		font-weight: 400;
+		padding-right: 4rem;
 		color: black;
 	}
 
 	.start-btn {
 		align-self: center;
-		margin-top: 0.5rem;
+		margin-top: 2rem;
 	}
 
 	.start-btn button {

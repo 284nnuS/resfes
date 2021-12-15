@@ -11,10 +11,10 @@
 				<a href="/">ZOOMI<br />DSOON</a>
 			</li>
 			<li>
-				<a href="reason">Reason</a>
+				<a href="about">Giới thiệu</a>
 			</li>
 			<li>
-				<a href="about">About Us</a>
+				<a href="reason">Đôi lời</a>
 			</li>
 		</ul>
 	</div>
