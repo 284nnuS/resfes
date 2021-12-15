@@ -7,7 +7,7 @@ face_analyze = ctrl.Antecedent(np.arange(0, 1.01, 0.01), 'Face Analyze')
 multiple_intelligence = ctrl.Antecedent(
     np.arange(3, 13, 1), 'Multiple Intelligence')
 coverage_of_majors = ctrl.Consequent(
-    np.arange(0, 76, 1), 'Coverage of Majors')
+    np.arange(0, 77, 1), 'Coverage of Majors')
 
 face_analyze['low'] = fuzz.trapmf(face_analyze.universe, [0, 0, 0.08, 0.18])
 face_analyze['medium'] = fuzz.trimf(face_analyze.universe, [0.08, 0.18, 0.35])
@@ -42,27 +42,29 @@ coverage_of_majors['high'] = fuzz.trimf(
 rule1 = ctrl.Rule(
     face_analyze['low'] & multiple_intelligence['low'], coverage_of_majors['low'])
 rule2 = ctrl.Rule(
-    face_analyze['low'] & multiple_intelligence['low medium'], coverage_of_majors['low'])
+    face_analyze['low'] & multiple_intelligence['low medium'], coverage_of_majors['low medium'])
 rule3 = ctrl.Rule(
     face_analyze['low'] & multiple_intelligence['medium'], coverage_of_majors['low medium'])
 rule4 = ctrl.Rule(
     face_analyze['low'] & multiple_intelligence['high medium'], coverage_of_majors['medium'])
 rule5 = ctrl.Rule(
-    face_analyze['low'] & multiple_intelligence['high'], coverage_of_majors['medium'])
+    face_analyze['low'] & multiple_intelligence['high'], coverage_of_majors['high medium'])
+
 rule6 = ctrl.Rule(
     face_analyze['medium'] & multiple_intelligence['low'], coverage_of_majors['low medium'])
 rule7 = ctrl.Rule(
-    face_analyze['medium'] & multiple_intelligence['low medium'], coverage_of_majors['low medium'])
+    face_analyze['medium'] & multiple_intelligence['low medium'], coverage_of_majors['medium'])
 rule8 = ctrl.Rule(
     face_analyze['medium'] & multiple_intelligence['medium'], coverage_of_majors['medium'])
 rule9 = ctrl.Rule(
     face_analyze['medium'] & multiple_intelligence['high medium'], coverage_of_majors['high medium'])
 rule10 = ctrl.Rule(
-    face_analyze['medium'] & multiple_intelligence['high'], coverage_of_majors['high medium'])
+    face_analyze['medium'] & multiple_intelligence['high'], coverage_of_majors['high'])
+
 rule11 = ctrl.Rule(
     face_analyze['high'] & multiple_intelligence['low'], coverage_of_majors['medium'])
 rule12 = ctrl.Rule(
-    face_analyze['high'] & multiple_intelligence['low medium'], coverage_of_majors['medium'])
+    face_analyze['high'] & multiple_intelligence['low medium'], coverage_of_majors['high medium'])
 rule13 = ctrl.Rule(
     face_analyze['high'] & multiple_intelligence['medium'], coverage_of_majors['high medium'])
 rule14 = ctrl.Rule(
