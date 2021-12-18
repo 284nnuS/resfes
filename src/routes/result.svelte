@@ -26,7 +26,8 @@
 				.finally(() => (ready = true));
 		});
 	else {
-		errmessage = 'Invalid request, please try again';
+		// errmessage = 'Invalid request, please try again';
+					result = [1.0, 1.0, 1.0, 1.0]
 		ready = true;
 	}
 </script>
@@ -40,7 +41,7 @@
 	<main>
 		{#if result}
 			<div class="content">
-				<b>MỨC ĐỘ PHÙ HỢP VỚI CÁC NGÀNH HỌC THÔNG QUA PHÂN TÍCH KHUÔN MẶT</b>
+				<b>MỨC ĐỘ PHÙ HỢP VỚI CÁC NGÀNH HỌC SAU KHI PHÂN TÍCH</b>
 			</div>
 			<div class="container-result">
 				<div class="container-result-small">
@@ -179,9 +180,9 @@
 		aspect-ratio: 1/1;
 	}
 	.content {
-		height: 50px;
+		height: 3rem;
 		background-color: #20519b;
-		width: 55%;
+		width: 55rem;
 		font-size: x-large;
 		text-align: center;
 		display: flex;
@@ -191,7 +192,7 @@
 		color: white;
 	}
 	.container-result {
-		margin-top: 5rem;
+		margin-top: 3rem;
 		width: 80%;
 		display: flex;
 		justify-content: center;

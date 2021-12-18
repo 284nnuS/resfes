@@ -76,7 +76,7 @@ def compute_ratios(img):
     return [confidence, friendliness, patience, sense_of_humour, generosity, leadership, ambitious, sensitive]
 
 
-svc = pickle.load(open('model.pkl', 'rb'))
+svc = pickle.load(open('model_2.pkl', 'rb'))
 
 
 def predict(img):

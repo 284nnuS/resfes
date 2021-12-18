@@ -26,9 +26,8 @@
 
 	<div class="left-container">
 		<h2>ỨNG DỤNG <br/> TƯ VẤN NGÀNH HỌC</h2>
-		<h3>Tải lên ảnh của bạn</h3>
 		<p>
-			Ứng dụng của chúng tôi sẽ sử dụng AI phân tích khuôn mặt kết hợp với các câu hỏi dựa trên
+			Ứng dụng của chúng tôi sử dụng AI phân tích khuôn mặt kết hợp với các câu hỏi dựa trên
 			Thuyết đa trí tuệ để hỗ trợ tư vấn ngành học phù hợp với bạn tại Đại học FPT.
 		</p>
 		<a href="upload" class="start-btn">
@@ -140,7 +139,8 @@
 	.left-container {
 		position: absolute;
 		bottom: 5rem;
-		padding: 3rem;
+		padding: 2rem;
+		padding-right: 0;
 		width: 30vw;
 		height: 60vh;
 		justify-content: center;
@@ -151,30 +151,23 @@
 	}
 
 	.left-container h2,
-	h3,
 	p {
 		margin: 0;
 		padding: 0;
 	}
 
 	.left-container h2 {
-		font-size: 2.25rem;
-		font-weight: 700;
+		font-size: 2rem;
+		hyphens: manual;
+		font-weight: 800;
 		color: #ca608b;
-		width: 66%;
-	}
-
-	.left-container h3 {
-		font-size: 2.25rem;
-		font-weight: 500;
-		color: black;
-		width: 85%;
+		width: 75%;
 	}
 
 	.left-container p {
-		font-size: 1.25rem;
-		font-weight: 400;
-		padding-right: 4rem;
+		font-size: 1rem;
+		font-weight: 500;
+		padding-right: 5rem;
 		color: black;
 	}
 

@@ -23,7 +23,7 @@
 				<img src="/TDung.jpg" alt="" />
 			</div>
 			<div class="description">
-				<p class="name">Trung Dũng</p>
+				<p class="name">DE150236<br/>Trung Dũng</p>
 			</div>
 		</div>
 		<div class="card">
@@ -31,7 +31,7 @@
 				<img src="/TDungg.jpg" alt="" />
 			</div>
 			<div class="description">
-				<p class="name">Thuỳ Dung</p>
+				<p class="name">DE150246<br/>Thuỳ Dung</p>
 			</div>
 		</div>
 		<div class="card">
@@ -39,15 +39,7 @@
 				<img src="/VChuong.jpg" alt="" />
 			</div>
 			<div class="description">
-				<p class="name">Văn Chương</p>
-			</div>
-		</div>
-		<div class="card">
-			<div class="images">
-				<img src="/Mentor.jpg" alt="" />
-			</div>
-			<div class="description">
-				<p class="name">Gia Trí</p>
+				<p class="name">DE150302<br/>Văn Chương</p>
 			</div>
 		</div>
 		<div class="card">
@@ -55,7 +47,7 @@
 				<img src="/THoai.jpg" alt="" />
 			</div>
 			<div class="description">
-				<p class="name">Thu Hoài</p>
+				<p class="name">DE150334<br/>Thu Hoài</p>
 			</div>
 		</div>
 		<div class="card">
@@ -63,7 +55,15 @@
 				<img src="/VSon.jpg" alt="" />
 			</div>
 			<div class="description">
-				<p class="name">Văn Sơn</p>
+				<p class="name">DE150275<br/>Văn Sơn</p>
+			</div>
+		</div>
+		<div class="card">
+			<div class="images">
+				<img src="/Mentor.jpg" alt="" />
+			</div>
+			<div class="description">
+				<p class="name">Mentor<br/>Gia Trí</p>
 			</div>
 		</div>
 	</div>
@@ -139,13 +139,13 @@
 		transform: scale(1.1);
 	}
 	#image-grid .card:nth-child(4) img {
-		transform: scale(1.2) translate(0, -4%);
-	}
-	#image-grid .card:nth-child(5) img {
 		transform: scale(1.5) translate(-5%, -2%);
 	}
-	#image-grid .card:nth-child(6) img {
+	#image-grid .card:nth-child(5) img {
 		transform: scale(1.5) translate(3%, -1%);
+	}
+	#image-grid .card:nth-child(6) img {
+		transform: scale(1.2) translate(0, -4%);
 	}
 
 	/* #image-grid .card:hover {

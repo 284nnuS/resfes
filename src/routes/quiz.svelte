@@ -115,7 +115,7 @@
 								<div />
 							</div>
 						{/if}
-						Không rõ ràng
+						Không hẳn đúng
 					</button>
 					<button class="selection" on:click={() => addScore(2)}>
 						{#if selected[current_question] === 2}
@@ -127,7 +127,7 @@
 								<div />
 							</div>
 						{/if}
-						Thường là sai
+						Có vẻ sai
 					</button>
 					<button class="selection" on:click={() => addScore(1)}>
 						{#if selected[current_question] === 1}
@@ -139,7 +139,7 @@
 								<div />
 							</div>
 						{/if}
-						Hoàn toàn sai
+						Thường là sai
 					</button>
 				</div>
 			</div>

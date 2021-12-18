@@ -47,6 +47,24 @@ async def analyze(request: Request):
             "message": "Yêu cầu bị lỗi. Vui lòng thử lại"
         }
 
+def subtractAll(result, i):
+    sub = 0.05 * result[i]
+    for j in range(0, len(result)):
+        if i != j and abs(result[i] - result[j]) <= 0.5 and result[j] >= 30:
+            result[j] = result[j] - sub
+
+def fixResult(result, face_analyze, scores):
+    for i in range(0, len(result)):
+        for j in range(0, len(result)):
+            if i != j and abs(result[i] - result[j]) <= 0.5:
+                if scores[i] > scores[j]:
+                    subtractAll(result, i)
+                elif scores[i] < scores[j]:
+                    subtractAll(result, j)
+                elif face_analyze[i] > face_analyze[j]:
+                    subtractAll(result, i)
+                else:
+                    subtractAll(result, j)
 
 @ app.post("/api/submit")
 async def submit(request: Request):
@@ -83,6 +101,8 @@ async def submit(request: Request):
         for i in range(0, len(scores)):
             result.append(fuzzy(face_analyze[i], scores[i]))
 
+        fixResult(result, face_analyze, scores)    
+
         cache[id] = {
             "done": True,
             "data": result,
@@ -113,6 +133,7 @@ async def view(id: str):
                 "success": False,
                 "message": "Yêu cầu bị lỗi. Vui lòng thử lại"
             }
+            
         return {
             "success": True,
             "result": el['data']
@@ -142,6 +163,14 @@ num_of_question = 3
 @ app.get("/api/quiz/{id}")
 async def quiz(id: str):
     if id not in cache:
+        return {
+            "success": False,
+            "message": "Yêu cầu bị lỗi. Vui lòng thử lại"
+        }
+
+    el = cache[id]
+
+    if el['done'] is True:
         return {
             "success": False,
             "message": "Yêu cầu bị lỗi. Vui lòng thử lại"

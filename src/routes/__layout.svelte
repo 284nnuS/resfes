@@ -23,11 +23,11 @@
 
 <svelte:head>
     <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Signika">
+          href="https://fonts.googleapis.com/css?family=Nunito:300,400,500,700,800,900">
 </svelte:head>
 
 <style>
 	.flex-layout {
-		font-family: 'Signika';
+		font-family: 'Nunito';
 	}
 </style>
