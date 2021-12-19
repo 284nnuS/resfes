@@ -70,22 +70,6 @@ rule14 = ctrl.Rule(
 rule15 = ctrl.Rule(
     face_analyze['High'] & multiple_intelligence['High'], coverage_of_majors['High'])
 
-# rule1.view()
-# rule2.view()
-# rule3.view()
-# rule4.view()
-# rule5.view()
-# rule6.view()
-# rule7.view()
-# rule8.view()
-# rule9.view()
-# rule10.view()
-# rule11.view()
-# rule12.view()
-# rule13.view()
-# rule14.view()
-# rule15.view()
-
 estimate_ctrl = ctrl.ControlSystem(
     [rule1, rule2, rule3, rule4, rule5, rule6, rule7, rule8, rule9, rule10, rule11, rule12, rule13, rule14, rule15])
 
@@ -96,7 +80,3 @@ def fuzzy(face_analyze, multiple_intelligence):
     estimating.input['Multiple Intelligence'] = multiple_intelligence
     estimating.compute()
     return estimating.output['Coverage of Majors']
-
-
-# coverage_of_majors.view(sim=estimating)
-plt.show()
