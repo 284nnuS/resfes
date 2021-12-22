@@ -1,0 +1,14 @@
+server {
+    listen 80 default_server;
+
+    server_name resfes.com www.resfes.com;
+ 
+    location /api {
+   	 proxy_pass http://localhost:3001;
+    }
+
+    location / {
+    	 proxy_pass http://localhost:3000;
+
+    }
+}

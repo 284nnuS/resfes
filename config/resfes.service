@@ -1,0 +1,10 @@
+[Unit]
+Description=Resfes service
+
+[Service]
+User=azureuser
+ExecStart=/home/azureuser/resfes/start.sh
+
+[Install]
+WantedBy=multi-user.target
+
