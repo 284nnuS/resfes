@@ -53,9 +53,9 @@
 		}
 		let file = files[0];
 
-		if (!['image/gif', 'image/jpeg', 'image/png'].includes(file.type)) {
+		if (!['image/jpeg', 'image/png'].includes(file.type)) {
 			state = 'error';
-			errmessage = 'Vui lòng chọn chỉ một bức ảnh';
+			errmessage = 'Vui lòng tải lên bức ảnh ở định dạng jpg, png';
 			return;
 		}
 
